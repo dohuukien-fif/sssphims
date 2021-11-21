@@ -1,0 +1,72 @@
+@use  "./../../sass/index.scss" as *;
+.footer{
+   background-color: #070c0f;
+   // background-image: -webkit-gradient(linear,left top,left bottom,from(#081b27),to(rgba(8,27,39,.8))),url(https://global-uploads.webflow.com/5fe2d56…/5fe2d56…_Photo-8.jpg);
+   background-image: linear-gradient(
+180deg,#081b27,rgba(8,27,39,.8)),url(https://global-uploads.webflow.com/5fe2d564b3fa64a886a11cee/5fe2d564b3fa643be1a11d52_Photo-8.jpg);
+   background-position: 0 0,50% 50%;
+   background-size: auto,cover;
+   font-size: 15px;
+   position: absolute;
+   left: 0;
+   right: 0;
+   bottom: 0;
+ 
+ .footer_container{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10rem;
+    margin-top: 10rem;
+    position: relative;
+    &::after{
+      // position: di;
+    position: absolute;
+      content: "";
+      left: 0;
+      right: 0;
+   bottom: 0;
+
+      height: 2px;
+      background-color: transparent;
+      width: 100%;
+      border-bottom: 1px solid hsla(0,0%,100%,.1);
+   
+    color: #8f9da7;
+    font-size: 12px;
+    text-align: center;
+   }
+    @include mobile{
+       display: flex;
+    }
+    @include tablet{
+ width: 50%;
+ margin-bottom: 5rem;
+    margin-top: 5rem;
+margin-right: auto;
+   }
+    .footerLisst{
+       padding: 3rem;
+       margin: auto;
+       color: #74a8cf;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       @include mobile {
+         flex: 1;
+         display: flex;
+         justify-content: flex-start;
+         align-items: flex-start;
+         padding: 0;
+       }
+       @include tablet{
+         padding: 3rem;
+       }
+   
+          & > li{
+             padding: 0.2rem;
+          
+       }
+    }
+ }
+}
