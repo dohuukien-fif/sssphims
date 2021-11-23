@@ -1,0 +1,30 @@
+@use  "./../../../../sass/index.scss" as *;
+.movie_list{
+   .movie_item{
+      display: flex;
+      margin-bottom: 2rem;
+      .movie_aside{
+         flex: 1;
+         display: flex;
+         /* margin: auto; */
+         justify-content: center;
+         align-items: flex-start;
+     & > img{
+        width: 65px;
+        height: 80px;
+        border-radius: 5px;
+     }
+      }
+      .movie_header{
+         flex: 3;
+         margin-left: 20px;
+         .movie_name{
+            width: 70%;
+            & > p{
+               font-size: 15px;
+               color: white;
+            }
+         }
+      }
+   }
+}

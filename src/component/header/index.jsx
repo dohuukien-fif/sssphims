@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "./styles.scss";
 import { AiOutlineAlignCenter, AiOutlineClose } from "react-icons/ai";
@@ -8,8 +8,23 @@ Header.propTypes = {};
 
 function Header(props) {
   const [istab, setistab] = useState(false);
+  const [scroll, setscroll] = useState(false);
+  useEffect(() => {
+    function scrollNavabar() {
+      if (window.scrollY > 100) {
+        setscroll(true);
+      } else {
+        setscroll(false);
+      }
+    }
+    window.addEventListener("scroll", scrollNavabar);
+    return () => {
+      window.removeEventListener("scroll", scrollNavabar);
+    };
+  }, [scroll]);
+
   return (
-    <nav className="nav">
+    <nav className={scroll ? "nav activeNav" : "nav"}>
       <div className="nav_link">
         <div className="nav_figure">
           <img src="https://i.imgur.com/GvLWtFD.png" alt="" />
@@ -17,10 +32,14 @@ function Header(props) {
 
         <ul className={istab ? "nav_menu actives" : " nav_menu"}>
           <li>phim mới</li>
+
           <li>
-            <Link to="teams"></Link> phim lẻ
+            <Link to="/phim-bo"> phim lẻ</Link>
           </li>
-          <li>phim bộ</li>
+          <li>
+            {" "}
+            <Link to="/old"> phim bộ</Link>
+          </li>
           <li>phim anime</li>
           <li>phim chiếu rạp</li>
         </ul>

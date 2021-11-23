@@ -1,0 +1,82 @@
+@use  "./../../../../../sass/index.scss" as *;
+.info{
+   .info_header{
+      .info_name{
+         & >p{
+            font-size: 25px;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    font-family: Nunito,sans-serif !important;
+    @include mobile{
+       text-align: left;
+       font-size: 40px;
+       line-height: 3rem;
+    }
+         }
+      }
+      .info_evanta{
+         padding: 1rem;
+         @include mobile{
+            padding-bottom: 0;
+         }
+      }
+      .info_premiere{
+         display: flex;
+    align-items: center;
+    justify-content: space-around;
+    @include mobile{
+      justify-content: flex-start;
+    }
+         & > img{
+            width: 15px;
+
+         }
+       .info_image{
+         @include mobile{
+            margin-left: 10px;
+         }
+        }
+       .infor_firt{
+         color: #cad3da;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: underline;
+         }
+         & > span:last-child{
+            font-size: 13px;
+            margin-right: 10px;
+            color: white;
+         }
+      }
+   }
+   .info_body{
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      @include mobile{
+         justify-content: flex-start;
+      }
+      & > button:first-child{
+         padding: 1.5rem;
+         background: #3898ec;
+         border-radius: 5px;
+         border: none;
+         margin-right: 10px;
+      }
+      & > button:last-child{
+         border: none;
+         padding: 1.5rem;
+         background: #e46466;
+         border-radius: 5px;
+      }
+   }
+   .info_footer{
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      @include mobile{
+         font-size: 16px;
+      }
+   }
+}

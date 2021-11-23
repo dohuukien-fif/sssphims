@@ -1,25 +1,25 @@
-import axiosClient from './axiosClient';
+import axiosClient from "./axiosClient";
 
-const TrousersApi = {
+const cinimerApi = {
   getAll(params) {
-    const url = '/quan';
+    const url = "/cinimer ";
     return axiosClient.get(url, { params });
   },
   get(id) {
-    const url = `/quan/${id}`;
+    const url = `/cinimer /${id}`;
     return axiosClient.get(url);
   },
   add(data) {
-    const url = `/quan`;
+    const url = `/cinimer `;
     return axiosClient.post(url, data);
   },
   update(data) {
-    const url = `/quan/${data}`;
+    const url = `/cinimer /${data}`;
     return axiosClient.get(url, data);
   },
   detele(id) {
-    const url = `/quan/${id}`;
+    const url = `/cinimer /${id}`;
     return axiosClient.get(url);
   },
 };
-export default TrousersApi;
+export default cinimerApi;

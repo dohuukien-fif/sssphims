@@ -7,10 +7,12 @@
    background-position: 0 0,50% 50%;
    background-size: auto,cover;
    font-size: 15px;
-   position: absolute;
-   left: 0;
-   right: 0;
-   bottom: 0;
+   // position: absolute;
+   // left: 0;
+   // right: 0;
+   // bottom: 0;
+   display: flex;
+   margin-top: auto;
  
  .footer_container{
     width: 80%;

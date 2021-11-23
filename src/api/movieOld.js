@@ -1,25 +1,25 @@
-import axiosClient from './axiosClient';
+import axiosClient from "./axiosClient";
 
-const ProductApi = {
+const OldApi = {
   getAll(params) {
-    const url = '/products';
+    const url = "/oldMove";
     return axiosClient.get(url, { params });
   },
   get(id) {
-    const url = `/products/${id}`;
+    const url = `/oldMove/${id}`;
     return axiosClient.get(url);
   },
   add(data) {
-    const url = `/products`;
+    const url = `/oldMove`;
     return axiosClient.post(url, data);
   },
   update(data) {
-    const url = `/products/${data}`;
+    const url = `/oldMove/${data}`;
     return axiosClient.get(url, data);
   },
   detele(id) {
-    const url = `/products/${id}`;
+    const url = `/oldMove/${id}`;
     return axiosClient.get(url);
   },
 };
-export default ProductApi;
+export default OldApi;

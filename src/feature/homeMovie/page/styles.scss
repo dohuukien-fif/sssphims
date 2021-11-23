@@ -1,0 +1,223 @@
+@use "./../../../sass/index.scss" as *;
+.movie{
+ background: #081b27;
+ min-height: 80vh;
+ @include tablets{
+   min-height: 100vh;
+ }
+ @include tablet{
+   min-height: 200vh;
+ }
+ &_search{
+   position: relative;
+   transform: translateY(50px);
+//  padding-top: 50px;
+   @include tablet{
+      width: 71%;
+      margin: auto;
+      display: inherit;
+      
+   }
+   & > input{
+      
+      height: 40px;
+      width: 100%;
+      border-radius: 5px;
+   
+      @include tablets{
+         width: 90%;
+         margin: auto;
+         display: inherit;
+         
+      }
+    
+   
+    }
+    & > button{
+      position: absolute;
+      right:0 ;
+      background: #3898ec;
+      border: none;
+      /* border: navajowhite; */
+      padding-right: 2rem;
+      border-radius: 5px;
+      height: 100%;
+      top: 0;
+      padding-left: 2rem;
+      font-size: 16px;
+      color: white;
+      font-weight: 600;
+      @include tablets{
+         position: absolute;
+         right: 48px;
+         height: 100%;
+         top: 0;
+         padding-left: 2rem;
+      /* padding: 2rem; */
+      background: #3898ec;
+      border: none;
+      /* border: navajowhite; */
+      padding-right: 2rem;
+      border-radius: 5px;
+      }
+    }
+ }
+ 
+   .movie_container{
+      margin: auto;
+      @include tablets{
+         display: flex;
+       
+       
+         margin-top: 150px;
+      }
+      @include tablet{
+       width: 71%;
+      //  margin: 150px auto;
+       
+         margin-top: 150px;
+        padding-bottom: 150px;
+      }
+    .movie_right{
+         @include tablets{
+            flex: 2.5;
+         // background-color: red;
+         // height: 500px;
+       
+         }
+     .movie_title{
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+      @include tablets{
+         flex-direction: row;
+    display: flex;
+    align-items: center;
+  
+    justify-content: space-around;
+      }
+      & > span{
+         margin-top: 40px;
+    margin-bottom: 40px;
+    color: #f1b722;
+    font-size: 25px;
+    line-height: 38px;
+    font-weight: 900;
+    text-transform: uppercase;
+      }
+      .tab{
+         display: flex;
+         margin-bottom: 7rem;
+         
+         @include tablets{
+            margin-bottom: 0;
+        
+         }
+         .tab_link{
+ & > a{
+    // padding: 1rem;
+// background: red;
+margin-left: 10px;
+font-size: 15px;
+padding-top: 1.2rem;
+padding-left: 2rem;
+border-radius: 40px;
+/* border: 20px; */
+/* padding: 1rem; */
+background: #0c2738;
+margin-left: 10px;
+font-size: 15px;
+padding-right: 2rem;
+padding-bottom: 1.2rem;
+
+ }
+ .unselected{
+   background: red;
+}
+.unselecteds{
+   background: white;
+}
+         }
+      }
+     }
+      }
+    .movie_left{
+        display: none;
+        margin-left: 20px;
+        margin-right: 10px;
+        .movie_title{
+         display: flex;
+         justify-content: space-between;
+         flex-direction: column;
+         align-items: center;
+         @include tablets{
+            flex-direction: row;
+       display: flex;
+       align-items: center;
+     
+       justify-content: space-around;
+         }
+         & > span{
+            margin-top: 40px;
+       margin-bottom: 40px;
+       color: #f1b722;
+       font-size: 25px;
+       line-height: 38px;
+       font-weight: 900;
+       text-transform: uppercase;
+         }
+        
+      }
+       
+            @include tablets{
+               flex: 1;
+               // background-color: green;
+               height: 500px;
+           display: block;
+            
+           
+         }
+         .movie_seriesHot{
+            height:600px ;
+            overflow: auto;
+            &::-webkit-scrollbar {
+               width: 8px;
+             }
+            &::-webkit-scrollbar-track {
+               -webkit-box-shadow: inset 0 0 6px#555555;
+               background-color:  #081b27;
+             }
+             &::-webkit-scrollbar-thumb {
+               background-color: rgb(110, 109, 109);
+               // border: 2px solid #555555;
+               outline: 1px solid slategrey;
+             }
+         }
+      }
+}
+ .movie_old{
+   .movie_titles{
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+      @include tablets{
+         flex-direction: row;
+    display: flex;
+    align-items: center;
+  
+   
+      }
+      & > span{
+         margin-top: 40px;
+    margin-bottom: 40px;
+    color: #f1b722;
+    font-size: 25px;
+    line-height: 38px;
+    font-weight: 900;
+    text-transform: uppercase;
+      }
+   }
+ }
+}

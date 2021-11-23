@@ -1,25 +1,25 @@
-import axiosClient from './axiosClient';
+import axiosClient from "./axiosClient";
 
-const HatApi = {
+const AnimeApi = {
   getAll(params) {
-    const url = '/mu';
+    const url = "/shrit";
     return axiosClient.get(url, { params });
   },
   get(id) {
-    const url = `/mu/${id}`;
+    const url = `/shrit/${id}`;
     return axiosClient.get(url);
   },
   add(data) {
-    const url = `/mu`;
+    const url = `/shrit`;
     return axiosClient.post(url, data);
   },
   update(data) {
-    const url = `/mu/${data}`;
+    const url = `/shrit/${data}`;
     return axiosClient.get(url, data);
   },
   detele(id) {
-    const url = `/mu/${id}`;
+    const url = `/shrit/${id}`;
     return axiosClient.get(url);
   },
 };
-export default HatApi;
+export default AnimeApi;

@@ -1,25 +1,25 @@
-import axiosClient from './axiosClient';
+import axiosClient from "./axiosClient";
 
-const SneakerApi = {
+const ProductApi = {
   getAll(params) {
-    const url = '/sneaker';
+    const url = "/home";
     return axiosClient.get(url, { params });
   },
   get(id) {
-    const url = `/sneaker/${id}`;
+    const url = `/home/${id}`;
     return axiosClient.get(url);
   },
   add(data) {
-    const url = `/sneaker`;
+    const url = `/home`;
     return axiosClient.post(url, data);
   },
   update(data) {
-    const url = `/sneaker/${data}`;
+    const url = `/home/${data}`;
     return axiosClient.get(url, data);
   },
   detele(id) {
-    const url = `/sneaker/${id}`;
+    const url = `/home/${id}`;
     return axiosClient.get(url);
   },
 };
-export default SneakerApi;
+export default ProductApi;

@@ -1,0 +1,17 @@
+@use "./../../../../../sass/index.scss"as *;
+.thumnail{
+   
+   .thumani_aside{
+      margin: auto;
+      overflow: hidden;
+      & >img{
+         width: 200px;
+         height: 300px;
+         margin: auto;
+         @include mobile{
+            width: 280px;
+            height: 420px;
+         }
+      }
+   }
+}
