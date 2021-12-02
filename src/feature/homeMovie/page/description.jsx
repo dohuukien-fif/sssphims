@@ -5,6 +5,9 @@ import useDetailProduct from "./../component/hooks/useDescription";
 import ThumnaiMovie from "../component/description/thumnail";
 import MoviInfor from "../component/description/movieinfo";
 import "./description.scss";
+
+import DetaiList from "./../component/description/descriptions/detailLisst";
+import CountineList from "../component/description/countine/countineList";
 Description.propTypes = {};
 
 function Description(props) {
@@ -15,25 +18,73 @@ function Description(props) {
   // const match =matchPath( pathname, routes )?.path;
   // console.log(match);
   const { product, Loading } = useDetailProduct(movieId);
+
   return (
     <div className="description">
-      <div className="header">
-        <div className="header_figure">
-          <img
-            src="https://mp-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=604800&url=https%3A%2F%2Fi0.wp.com%2Fimage.motphim.net%2Fposter%2Fhoc-chau-phu-nhan-9592.jpg"
-            alt=""
-          />
-        </div>
-        <div className="header_content">
-          <div className="header_left">
-            <ThumnaiMovie product={product} />
+      {Loading ? (
+        <div className="loading">
+          <div class="lds-default">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
-          <div className="header_right">
-            <MoviInfor product={product} />
-          </div>
         </div>
-      </div>
-      <div className="body"></div>
+      ) : (
+        <>
+          <div className="header">
+            <div className="header_figure">
+              <img src={product.thumbnailUrl} alt={product.name} />
+
+              <div className="header_content">
+                <div className="header_left">
+                  <ThumnaiMovie product={product} />
+                </div>
+                <div className="header_right">
+                  <MoviInfor product={product} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="body">
+            <div className="body_content">
+              <DetaiList product={product} />
+            </div>
+          </div>
+          <div className="trailer">
+            <div className="trailer_container">
+              <div className="trailer_title">
+                <p>Official trailer:</p>
+              </div>
+              <div className="trailer_body">
+                <iframe
+                  width="100%"
+                  height="454"
+                  src={product.desTrailer}
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+          <div className="countine">
+            <div className="countine_title">CÓ THỂ BẠN CŨNG MUỐN XEM</div>
+            <div className="countine_container">
+              <CountineList />
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }

@@ -2,23 +2,23 @@ import axiosClient from "./axiosClient";
 
 const AnimeApi = {
   getAll(params) {
-    const url = "/shrit";
+    const url = "/anime";
     return axiosClient.get(url, { params });
   },
   get(id) {
-    const url = `/shrit/${id}`;
+    const url = `/anime/${id}`;
     return axiosClient.get(url);
   },
   add(data) {
-    const url = `/shrit`;
+    const url = `/anime `;
     return axiosClient.post(url, data);
   },
   update(data) {
-    const url = `/shrit/${data}`;
+    const url = `/anime /${data}`;
     return axiosClient.get(url, data);
   },
   detele(id) {
-    const url = `/shrit/${id}`;
+    const url = `/anime /${id}`;
     return axiosClient.get(url);
   },
 };

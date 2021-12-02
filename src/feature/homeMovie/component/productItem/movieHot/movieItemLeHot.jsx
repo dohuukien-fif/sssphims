@@ -1,19 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { AiOutlineStar } from "react-icons/ai";
-movieItemLeHot.propTypes = {};
+import { useNavigate } from "react-router-dom";
+MoviItemLeHot.propTypes = {};
 
-function movieItemLeHot({ items }) {
+function MoviItemLeHot({ items }) {
   const { thumbnailUrl, premiere, name } = items;
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/trang-chu/phim/${items.id}`);
+  };
   return (
     <div className="movie_item" key={items.id}>
-      <div className="movie_aside">
-        <img
-          src="https://mp-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=604800&url=https%3A%2F%2Fi0.wp.com%2Fimage.motphim.net%2Fposter%2Fhoc-chau-phu-nhan-9592.jpg"
-          alt=""
-        />
+      <div className="movie_aside" onClick={handleClick}>
+        <img src={thumbnailUrl} alt={name} />
       </div>
-      <header className="movie_header">
+      <header className="movie_header" onClick={handleClick}>
         <div className="movie_name">
           <p>{name}</p>
         </div>
@@ -29,4 +32,4 @@ function movieItemLeHot({ items }) {
   );
 }
 
-export default movieItemLeHot;
+export default MoviItemLeHot;

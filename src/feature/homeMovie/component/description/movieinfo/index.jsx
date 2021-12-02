@@ -2,46 +2,52 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./styles.scss";
 import { AiOutlineStar } from "react-icons/ai";
+import { FcFlashOn } from "react-icons/fc";
+import { BiTimeFive } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 MoviInfor.propTypes = {
-  product: PropTypes.object,
+  product: PropTypes.array,
 };
 
 function MoviInfor({ product }) {
   const { name, premiere, practice, nation, cast, director, year, date, time } =
     product;
   const dates = new Date();
-  const dataMovie = `${dates.getDate()}/ ${dates.getDay()}/${dates.getFullYear()}`;
+  const dataMovie = `${dates.getDate()}/ ${
+    dates.getMonth() + 1
+  }/${dates.getFullYear()}`;
+  const navigate = useNavigate();
 
+  const handleClick = () => {
+    navigate(`/trang-chu/p/${product.id}`);
+  };
   return (
     <div className="info">
       <header className="info_header">
         <div className="info_name">
           <p> {product.name}</p>
         </div>
-        <div className="info_evanta">
-          <AiOutlineStar style={{ fontSize: "17px", color: "yellow" }} />
-          <AiOutlineStar style={{ fontSize: "17px", color: "yellow" }} />
-          <AiOutlineStar style={{ fontSize: "17px", color: "yellow" }} />
-          <AiOutlineStar style={{ fontSize: "17px", color: "yellow" }} />
-          <AiOutlineStar style={{ fontSize: "17px", color: "yellow" }} />
-        </div>
-        <div className="info_premiere">
-          <img
-            src="https://www.ssphim.net/static/5fe2d564b3fa64a886a11cee/5fe2d564b3fa647446a11d19_tag.svg"
-            alt=""
-          />{" "}
-          <span className="infor_firt">{premiere}</span>
-          <img
-            className="info_image"
-            src="https://www.ssphim.net/static/5fe2d564b3fa64a886a11cee/5fe2d564b3fa647cf1a11d0b_clock.svg"
-            alt=""
-          />
-          <span>{dataMovie}</span>
+        <div className="info_user">
+          <div className="info_evanta">
+            <AiOutlineStar style={{ fontSize: "17px", color: "yellow" }} />
+            <AiOutlineStar style={{ fontSize: "17px", color: "yellow" }} />
+            <AiOutlineStar style={{ fontSize: "17px", color: "yellow" }} />
+            <AiOutlineStar style={{ fontSize: "17px", color: "yellow" }} />
+            <AiOutlineStar style={{ fontSize: "17px", color: "yellow" }} />
+          </div>
+          <div className="info_premiere">
+            <FcFlashOn style={{ fontSize: "17px" }} />
+            <span className="infor_firt">{premiere}</span>
+            <BiTimeFive
+              style={{ fontSize: "17px", color: "rgb(255, 193, 7)" }}
+            />
+            <span>{dataMovie}</span>
+          </div>
         </div>
       </header>
       <div className="info_body">
         <button>Trailer</button>
-        <button>Xem phim</button>
+        <button onClick={handleClick}>Xem phim</button>
       </div>
       <div className="info_footer">
         {director !== "" && (

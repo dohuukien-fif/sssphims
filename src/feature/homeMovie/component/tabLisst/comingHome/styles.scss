@@ -2,7 +2,7 @@
 .coming_list{
    // padding-bottom: 200px;
    // border-bottom: 1px solid;
-   padding: 1rem;
+   padding: 2rem;
    @include mobile{
       display: flex;
       flex-wrap: wrap;
@@ -11,6 +11,8 @@
    .coming_item{
       display: flex;
       flex-direction: column;
+      cursor: pointer;
+
       @include mobile{
          // width: 24%;
          flex-basis: 23.5%;
@@ -32,6 +34,9 @@
       border-radius: 5px;
       box-shadow: 1px 1px 3px 0 rgb(0 0 0 / 40%), inset 0 1px 0 0 hsl(0deg 0% 100% / 10%);
    flex-shrink: 0;
+   &:hover{
+      text-decoration: underline;
+   }
    @include mobile{
       width: 100%;
       height: 260px;
@@ -42,7 +47,9 @@
       .coming_header{
          .coming_evanta{
             text-align: center;
-   
+            @include tablets{
+               text-align: left;
+            }
          }
          .coming_name{
             & >p{
@@ -53,10 +60,16 @@
                font-size: 20px;
 
                color: white;
-            
+               &:hover{
+                  color: white;
+               }
             }
          }
          .coming_premiere{
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            display: flex;
+            align-items: center;
             & > img{
                width: 15px;
             }
@@ -67,12 +80,12 @@
                text-decoration: underline;
                text-align: left;
 
-               color: white;
+             color: #cad3da;
                
                margin-left: 8px;
                font-size: 13px;
             
-               padding-top: 20px;
+               // padding-top: 20px;
           
             }
          }

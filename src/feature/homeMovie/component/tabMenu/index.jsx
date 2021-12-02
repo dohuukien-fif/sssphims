@@ -8,15 +8,17 @@ function TabMenu(props) {
   return (
     <div className="tab">
       <div className="tab_link">
-        <NavLink to="/" className="unselecteds">
+        <NavLink end to="/Trang-chu" className="unselecteds">
           Tất cả phim
         </NavLink>
       </div>
       <div className="tab_link">
-        <NavLink to="/phim-bos">Sắp chiếu</NavLink>
+        <NavLink end to="/Trang-chu/phim-bos">
+          Sắp chiếu
+        </NavLink>
       </div>
       <div className="tab_link">
-        <NavLink to="/phim-le">Phim mới</NavLink>
+        <NavLink to="/Trang-chu/phim-le">Phim mới</NavLink>
       </div>
     </div>
   );

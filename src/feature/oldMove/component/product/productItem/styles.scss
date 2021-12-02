@@ -1,0 +1,137 @@
+@use  "./../../../../../sass/index.scss" as *;
+.olds_list{
+   // padding-bottom: 200px;
+   // border-bottom: 1px solid;
+   padding: 2rem;
+   @include mobile{
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 20px;
+      margin-left: 20px;
+      // justify-content: center;
+   }
+   @include tablets{
+      margin-left:0;
+      column-gap: 20px;
+    
+   }
+   @include tablet{
+    
+      column-gap: 35px;
+    
+   }
+   .olds_item{
+      display: flex;
+      flex-direction: column;
+cursor: pointer;
+margin-bottom: 4rem;
+cursor: pointer;
+// width:24%;
+   @include mobile{
+      flex-basis: calc(25% - 20px);
+   
+
+      padding: 0rem;
+      margin-bottom: 4rem;
+   }
+   @include tablet{
+      flex-basis: calc(24% - 20px);
+   }
+      .olds_adside{
+         margin: auto;
+         // box-shadow: 1px 1px 3px 0 rgb(0 0 0 / 40%), inset 0 1px 0 0 hsl(0deg 0% 100% / 10%);
+         @include mobile{
+            margin: 0;
+         }
+   
+   & > img{
+      width: 200px;
+      height: 300px;
+
+      border-radius: 5px;
+      box-shadow: 1px 1px 3px 0 rgb(0 0 0 / 40%), inset 0 1px 0 0 hsl(0deg 0% 100% / 10%);
+   flex-shrink: 0;
+   &:hover{
+      opacity: 0.8;
+   }
+   @include mobile{
+      width: 100%;
+      height: 250px;
+   }
+   @include tablets{
+      width: 75%;
+      height: 260px;
+   }
+   @include tablet{
+      width: 69%;
+      height: 255px;
+   }
+   
+   }
+      }
+      .olds_header{
+         display: flex;
+         flex: 1;
+         flex-direction: column;
+         .olds_evanta{
+            text-align: center;
+
+             padding: 0.5rem;
+             @include tablets{
+                text-align: left;
+             }
+         }
+         .olds_name{
+            & >p{
+               font-family: Nunito,sans-serif !important;
+               text-align: center;
+             
+
+               font-size: 19px;
+               font-weight: 550;
+
+               color: white;
+               &:hover{
+                  text-decoration: underline;
+               }
+               @include tablets{
+                  text-align: left;
+
+                  font-size: 18px;
+               }
+               @include tablet{
+                 width: 90%;
+               }
+            }
+         }
+         .olds_premiere{
+            display: flex;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            & > img{
+               width: 15px;
+            }
+   
+            & > p{
+               display: inline-block;
+
+               text-decoration: underline;
+               text-align: left;
+
+               color: white;
+           
+               margin-left: 8px;
+               font-size: 13px;
+               // padding-top: 20px;
+               @include tablets{
+                  padding-top: 10px;
+               }
+          
+            }
+         }
+      }
+   }
+}

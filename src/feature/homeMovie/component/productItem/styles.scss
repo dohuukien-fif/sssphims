@@ -3,6 +3,8 @@
    .movie_item{
       display: flex;
       margin-bottom: 2rem;
+      cursor: pointer;
+      align-items: flex-start;
       .movie_aside{
          flex: 1;
          display: flex;
@@ -13,16 +15,23 @@
         width: 65px;
         height: 80px;
         border-radius: 5px;
+        &:hover{
+        opacity: 0.8;
+      }
      }
       }
       .movie_header{
          flex: 3;
          margin-left: 20px;
          .movie_name{
-            width: 70%;
+            width: 90%;
             & > p{
                font-size: 15px;
                color: white;
+               font-weight: 600;
+               &:hover{
+                  text-decoration: underline;
+               }
             }
          }
       }

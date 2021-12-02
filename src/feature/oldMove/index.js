@@ -1,14 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import MovieFeatures from "./page/oldMovie";
+import Description from "./page/description";
+import WatchTv from "./page/watchTv";
+HomeMovieFeatures.propTypes = {};
 
-index.propTypes = {};
-
-function index(props) {
+function HomeMovieFeatures(props) {
   return (
     <div>
-      <h1>kiend</h1>
+      <Routes>
+        {/* <Route path="/" element={<HomeMovie />} /> */}
+        <Route path="/*" element={<MovieFeatures />} />
+        {/* <Route path="/lll" element={<MovieFeatures />} /> */}
+        <Route path="/phim/:movieId" element={<Description />} />
+        <Route path="/p/:watchId" element={<WatchTv animate={true} />} />
+        {/* <Route path="new" element={<AnimeMovie />} /> */}
+        {/* <Route element={<CinermerMovie />} /> */}
+      </Routes>
     </div>
   );
 }
 
-export default index;
+export default HomeMovieFeatures;

@@ -11,7 +11,7 @@ function Header(props) {
   const [scroll, setscroll] = useState(false);
   useEffect(() => {
     function scrollNavabar() {
-      if (window.scrollY > 100) {
+      if (window.scrollY > 0) {
         setscroll(true);
       } else {
         setscroll(false);
@@ -27,21 +27,32 @@ function Header(props) {
     <nav className={scroll ? "nav activeNav" : "nav"}>
       <div className="nav_link">
         <div className="nav_figure">
-          <img src="https://i.imgur.com/GvLWtFD.png" alt="" />
+          <Link to="trang-chu">
+            {" "}
+            <img src="https://i.imgur.com/GvLWtFD.png" alt="" />
+          </Link>
         </div>
 
         <ul className={istab ? "nav_menu actives" : " nav_menu"}>
-          <li>phim mới</li>
+          <li>
+            <Link to="trang-chu">phim mới</Link>
+          </li>
 
           <li>
-            <Link to="/phim-bo"> phim lẻ</Link>
+            <Link to="/phim-le"> phim lẻ</Link>
           </li>
           <li>
             {" "}
-            <Link to="/old"> phim bộ</Link>
+            <Link to="/phim-bo"> phim bộ</Link>
           </li>
-          <li>phim anime</li>
-          <li>phim chiếu rạp</li>
+          <li>
+            {" "}
+            <Link to="/phim-hoat-hinh">phim anime</Link>
+          </li>
+          <li>
+            {" "}
+            <Link to="/phim-chieu-rap">phim chiếu rạp</Link>
+          </li>
         </ul>
       </div>
 

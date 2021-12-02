@@ -2,7 +2,7 @@
 .nav{
    height: 60px;
    background-color: #0c2738;
-  
+  border-bottom: 1px solid #0c2738;
   @include tablets{
     position: relative;
   }
@@ -19,12 +19,12 @@
   }
   .nav_figure{
      max-width: 150px;
-     line-height: 60px;
+     line-height: 80px;
      margin-left: 15px;
-     @include tablet{
-      line-height: 80px;
+   //   @include tablet{
+   //    line-height: 80px;
    
-     }
+   //   }
    
   }
  
@@ -50,7 +50,8 @@
       .nav_menu{
          display: flex;
          line-height: 60px;
-         font-size: 18px;
+         height: 60px;
+         font-size: 16px;
          color: #5a7282;
        
    //       padding: 3.5rem;
@@ -64,6 +65,7 @@
        
          // bottom: 0;
          @include tablet{
+            height: 80px;
             line-height: 80px;
             left:0;
            }
@@ -71,20 +73,23 @@
             position: absolute;
             // background-color: #081b27;
             left: -100%;
-            transition: 0.4s ease-in;
+            height: 100%;
+            // transition: 0.4s ease-in;
             top: 0;
             bottom: 0;
             // opacity: 0;
     flex-direction: column;
     display: flex;
     line-height: 60px;
-    font-size:20px;
+    font-size:18px;
     color: #5a7282;
 // z-index: 2;
     
  width: 50%;
  margin: auto;
     padding: 5rem;
+
+    
          }
   
        
@@ -92,16 +97,17 @@
          & > li{
       
             text-align: left;
-            padding: 1rem;
+            // padding: 1rem;
             border-bottom: 2px solid #507c9b;
             color: #899ead;
             transition: color .2s,border .2s;
             position: relative;
             cursor: pointer;  
+            font-weight: bold;
             // font-weight: 600;
 
             font-family: Catamaran,sans-serif;
-            font-weight: 500;
+            // font-weight: 500;
             @include tablets{
                width: 120px;
                margin-right: 10px;
@@ -123,6 +129,10 @@
                transition: 1s ease-in;
 right: 0;
 
+
+            }
+            &:hover{
+               color: white;
             }
          }
          &.actives{
@@ -150,10 +160,24 @@ right: 0;
       .nav_icon{
          position: absolute;
          font-size: 30px;
-         right: 15px;
-         top: 15px;
+         // right: 15px;
+         // top: 15px;
          color: white;
      
+         width: 60px;
+    /* height: 50px; */
+    top: 0;
+    right: 0;
+    background: #081b27;
+   height: 60px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    & > svg{
+      transition: 1s ease-in;
+    }
          @include tablets{
             display: none;
          }

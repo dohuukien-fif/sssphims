@@ -9,7 +9,7 @@ function movieLisstLeHot({ leHotLisst }) {
   return (
     <div className="movie_list">
       {leHotLisst
-        .filter((x) => x.categoryName === "phim")
+        .filter((x) => x.categoryName === "le")
         .map((items, index) => (
           <MovieItemBoHot items={items} />
         ))}

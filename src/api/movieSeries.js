@@ -2,11 +2,11 @@ import axiosClient from "./axiosClient";
 
 const SeriesApi = {
   getAll(params) {
-    const url = "/seriesMove ";
+    const url = "/seriesMove";
     return axiosClient.get(url, { params });
   },
   get(id) {
-    const url = `/seriesMove /${id}`;
+    const url = `/seriesMove/${id}`;
     return axiosClient.get(url);
   },
   add(data) {

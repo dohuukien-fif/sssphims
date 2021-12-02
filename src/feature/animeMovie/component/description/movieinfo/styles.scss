@@ -1,0 +1,179 @@
+// @use  "./../../../../../sass/index.scss" as *;
+// .info{
+//    // width: 80%;
+//    .info_header{
+//    //    width: 85%;
+//    //  margin: auto;
+// //     @include mobile{
+// //  width: 95%;
+// //    }
+   
+//    //  @include tablets{
+//    //    width: 90%;
+//    //     margin: 0;
+//    //  }
+//       .info_name{
+//          & >p{
+//             font-size: 30px;
+//     color: white;
+//     font-weight: 600;
+//     text-align: center;
+//     font-family: Nunito,sans-serif !important;
+//     @include mobile{
+//        text-align: left;
+//        font-size: 40px;
+//        line-height: 3rem;
+//     }
+//     @include tablets{
+  
+//       font-size: 60px;
+//       line-height: 5rem;
+//     }
+//     @include tablet{
+  
+//       font-size: 50px;
+//       line-height: 5rem;
+//     }
+//          }
+//          // @include mobile{
+//          //    width: 80%;
+          
+//          // }
+//          // @include tablets{
+//          //    width: 80%;
+          
+//          // }
+//          @include tablet{
+//             width: 60%;
+          
+//          }
+//       }
+//       .info_user{
+//          @include tablets{
+//             display: flex;
+//             align-items: center;
+//             padding: 1rem;
+//          }
+//          @include tablet{
+      
+//             padding: 1rem;
+//          }
+//          .info_evanta{
+           
+//             @include mobile{
+//                // padding-bottom: 0;
+//              margin-right: 10px;
+//             }
+          
+//          }
+//          .info_premiere{
+//             display: flex;
+//        align-items: center;
+//       //  justify-content: space-around;
+//        @include mobile{
+//          justify-content: flex-start;
+//       margin-bottom: 1rem;
+//        }
+//       //  & >img:first-child{
+//       //    margin-ri: 10px;
+//       // }
+//             & > img{
+//                width: 15px;
+   
+//             }
+          
+//           .info_image{
+//             @include mobile{
+//                margin-left: 10px;
+//             }
+//            }
+//            .infor_firt{
+//             color: #cad3da;
+//        font-size: 12px;
+//        font-weight: bold;
+//        text-decoration: underline;
+//        margin-right: 10px;
+//        @include tablets{
+//          font-size: 15px;
+//        }
+//       //  @include tablet{
+//       //    font-size: 15px;
+//       //  }
+//             }
+//             & > span:last-child{
+//                font-size: 13px;
+//                margin-right: 10px;
+//                color: white;
+//                @include tablets{
+//                   font-size: 17px;
+//                   font-weight: 600;
+//                 }
+//                @include tablet{
+//                   font-size: 18px;
+//                   font-weight: 600;
+//                 }
+//             }
+//          }
+//       }
+    
+     
+     
+      
+      
+//    }
+//    .info_body{
+    
+//       padding-bottom: 1rem;
+//       padding-top: 1rem;
+//       display: flex;
+//       justify-content: center;
+//       width: 80%;
+//       margin: auto;
+//       @include mobile{
+//          justify-content: flex-start;
+//       }
+//       @include tablets{
+//          margin: 0;
+//       }
+//       & > button:first-child{
+//          cursor: pointer;
+//          padding: 1.5rem;
+//          background: #3898ec;
+//          border-radius: 5px;
+//          border: none;
+//          margin-right: 10px;
+//          @include tablet{
+//             padding: 2rem;
+//          }
+//       }
+//       & > button:last-child{
+//          cursor: pointer;
+//          border: none;
+//          padding: 1.5rem;
+//          background: #e46466;
+//          border-radius: 5px;
+//          @include tablet{
+//             padding: 2rem;
+//          }
+//       }
+//    }
+//    .info_footer{
+//       color: white;
+//       font-size: 15px;
+//       font-weight: 600;
+//       // width: 80%;
+//       // margin: auto;
+//       & > p{
+//          @include tablet{
+//             line-height: 3.7rem;
+//          }
+//       }
+//       @include mobile{
+//          font-size: 16px;
+//       }
+//       @include tablets{
+//          font-size: 18px;
+//          margin: 0;
+//       }
+//    }
+// }
