@@ -4,6 +4,7 @@ import "./styles.scss";
 import { AiOutlineStar } from "react-icons/ai";
 import { FcFlashOn } from "react-icons/fc";
 import { BiTimeFive } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 MoviInfor.propTypes = {
   product: PropTypes.array,
 };
@@ -15,7 +16,19 @@ function MoviInfor({ product }) {
   const dataMovie = `${dates.getDate()}/ ${
     dates.getMonth() + 1
   }/${dates.getFullYear()}`;
+  const navigate = useNavigate();
 
+  const handleClick = () => {
+    navigate(`/phim-bo/p/${product.id}`);
+  };
+  const handleNavigeteCategory = (value) => {
+    navigate(
+      `/category/${value
+        ?.replaceAll(" ", "-")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")}`
+    );
+  };
   return (
     <div className="info">
       <header className="info_header">
@@ -32,7 +45,12 @@ function MoviInfor({ product }) {
           </div>
           <div className="info_premiere">
             <FcFlashOn style={{ fontSize: "17px" }} />
-            <span className="infor_firt">{premiere}</span>
+            <span
+              className="infor_firt"
+              onClick={() => handleNavigeteCategory(premiere)}
+            >
+              {premiere}
+            </span>
             <BiTimeFive
               style={{ fontSize: "17px", color: "rgb(255, 193, 7)" }}
             />
@@ -41,8 +59,10 @@ function MoviInfor({ product }) {
         </div>
       </header>
       <div className="info_body">
-        <button>Trailer</button>
-        <button>Xem phim</button>
+        <button>
+          <a href="trailer">Trailer</a>
+        </button>
+        <button onClick={handleClick}>Xem phim</button>
       </div>
       <div className="info_footer">
         {director !== "" && (

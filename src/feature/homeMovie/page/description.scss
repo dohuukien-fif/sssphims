@@ -23,9 +23,8 @@ display: flex;
     align-items: center;
     background-color:#081b27  !important;
    //   background-image: -webkit-gradient(linear,left top,left bottom,color-stop(14%,rgba(12,39,56,0)),to(#081b27)); 
-    background-image: linear-gradient(
-180deg,rgba(12,39,56,0) 14%,#081b27);
-    color: #fff;
+   background-image: linear-gradient( #081b27,#081b27);
+   //  color: #fff;
 //   z-index: 1;
   overflow: hidden;
   @include mobile{
@@ -50,8 +49,10 @@ display: flex;
    background-position: 50% 50%;
    background-size: cover;
    // z-index: -1;
-   opacity: 0.2;
-   background-color: rgba(7,24,34,.8);
+   opacity: 0.1;
+   // background-image: linear-gradient(
+   //    180deg,#081b27 14%,#081b27);
+   background-color:#081b27 ;
    @include mobile{
       height: 90vh;
       min-height: 850px;

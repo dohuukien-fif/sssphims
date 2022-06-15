@@ -7,6 +7,7 @@ import InforWatch from "../component/watch/info";
 import "./watchTv.scss";
 import Video from "../component/watch/video";
 import WatchContainer from "./../component/watch/moviHot/index";
+import LoadingAll from "./../../../component/Loading";
 WatchTv.propTypes = {};
 
 function WatchTv(props) {
@@ -20,22 +21,7 @@ function WatchTv(props) {
   return (
     <div className="watch">
       {Loading ? (
-        <div className="loading">
-          <div class="lds-default">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
+        <LoadingAll />
       ) : (
         <div className="watch_container">
           <header className="watch_header">

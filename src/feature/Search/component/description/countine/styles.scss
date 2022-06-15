@@ -1,0 +1,95 @@
+// @use  "./../../../../../sass/index.scss" as *;
+// .countine_list{
+//    // padding-bottom: 200px;
+//    // border-bottom: 1px solid;
+//    padding: 1rem;
+//    @include mobile{
+//       display: flex;
+//       flex-wrap: wrap;
+//       justify-content: space-between;
+//    }
+//    .countine_item{
+//       display: flex;
+//       flex-direction: column;
+// margin-bottom: 1rem;
+    
+//    @include mobile{
+//       // width: 24%;
+//       flex-basis: 20%;
+
+//       padding: 0rem;
+//       margin-bottom: 4rem;
+//    }
+//       .countine_adside{
+//          margin: auto;
+//          @include mobile{
+//             margin: 0;
+//          }
+   
+//    & > img{
+//       width: 200px;
+//       height: 300px;
+
+//       border-radius: 5px;
+//       box-shadow: 1px 1px 3px 0 rgb(0 0 0 / 40%), inset 0 1px 0 0 hsl(0deg 0% 100% / 10%);
+//    flex-shrink: 0;
+//    @include mobile{
+//       width: 100%;
+//       height: 260px;
+//    }
+   
+//    }
+//       }
+//       .countine_header{
+//          display: flex;
+//          flex: 1;
+//          flex-direction: column;
+//          .countine_evanta{
+//             text-align: center;
+
+//              padding: 0.5rem;
+//          }
+//          .countine_name{
+//             & >p{
+//                font-family: Nunito,sans-serif !important;
+//                text-align: center;
+
+//                font-size: 19px;
+//                font-weight: 550;
+
+//                color: white;
+//                @include tablets{
+//                   text-align: left;
+
+//                   font-size: 18px;
+//                }
+//             }
+//          }
+//          .countine_premiere{
+//             display: flex;
+//             margin-top: auto;
+//             padding: 1rem;
+//             & > img{
+//                width: 15px;
+//             }
+   
+//             & > p{
+//                display: inline-block;
+
+//                text-decoration: underline;
+//                text-align: left;
+
+//                color: white;
+           
+//                margin-left: 8px;
+//                font-size: 13px;
+//                // padding-top: 20px;
+//                @include tablets{
+//                   padding-top: 10px;
+//                }
+          
+//             }
+//          }
+//       }
+//    }
+// }

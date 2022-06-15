@@ -53,7 +53,10 @@ background-attachment: scroll!important;
       width: 95%;
       height: 260px;
    }
-   
+   @include tablet{
+      width: 92%;
+      height: 260px;
+   }
    }
       }
       .all_header{
@@ -70,7 +73,7 @@ background-attachment: scroll!important;
          }
          .all_name{
             & >p{
-               font-family: Nunito,sans-serif !important;
+               font-family:Catamaran,sans-serif !important;
                text-align: center;
 
                font-size: 19px;

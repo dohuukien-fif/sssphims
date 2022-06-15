@@ -61,15 +61,23 @@
             border: 2px solid rgb(76, 76, 15);
             width: 95%;
             margin:2rem auto 2rem auto;
+
             & > p{
-               font-size: 13px;
+               font-size: 14px;
                padding: 1rem;
-               color: white;
+               color: #cecece;
+               font-weight: 600;
+               & > strong{
+                  font-size: 15px;
+                  color: white;
+                  // font-weight: 900;
+               }
             }
          }
          .video_comment{
             .comment_title{
                display: flex;
+               align-items: center;
                // column-gap: 20px;
                & > span{
                   font-size: 23px;
@@ -88,9 +96,14 @@
                }
             }
             .commet_people{
+               // position: relative;
                background-color: white;
                width: 95%;
                margin: 3rem auto 3rem auto;
+               @include tablet{
+                  width: 80%;
+              
+               }
              
             }
          }

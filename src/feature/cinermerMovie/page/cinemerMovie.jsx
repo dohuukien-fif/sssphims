@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import cinimerApi from "./../../../api/movieCinermer";
 import MovieOldList from "../component/product/productList";
 import FilterMovie from "../movieFilter/filterMovie";
@@ -8,10 +8,13 @@ import "./styles.scss";
 import { BiError } from "react-icons/bi";
 import Search from "./../movieFilter/search";
 import Pagination from "@mui/material/Pagination";
+import LoadingAll from "./../../../component/Loading";
 OldMovieFeatures.propTypes = {};
 
 function OldMovieFeatures(props) {
   const location = useLocation();
+  const navigate = useNavigate();
+  const [SearchTerm, setSearchTerm] = useState("");
   console.log(location);
   const [OldMovieList, setOldMovieList] = useState([]);
   const [SeatchsItem, setSeatchItem] = useState("");
@@ -66,31 +69,22 @@ function OldMovieFeatures(props) {
   //   category: cate,
   // }));
   // console.log(newSearch);
+  //SEARCH
+  const handleSubmitSearch = (value) => {
+    navigate(`/phim?desCast=${value.replace(" ", "+")}`);
 
+    // navigate({ search: SearchTerm.trim("") });
+    // location.search(`${SearchTerm}`);
+  };
   return (
     <div className="old">
       {Loading ? (
-        <div className="loading">
-          <div class="lds-default">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
+        <LoadingAll />
       ) : (
         <>
           <div className="old_container">
             <div className="old_search">
-              <Search onSubmits={handleSearch} />
+              <Search onSubmits={handleSubmitSearch} />
             </div>
             <div className="old_title">PHIM MỚI CẬP NHẬT</div>
 

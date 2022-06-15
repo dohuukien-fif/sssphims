@@ -8,7 +8,7 @@ function Old({ OldMovie }) {
   return (
     <div className="old_list">
       {OldMovie.filter((x) => x.categoryName === "moi").map((items, index) => (
-        <OldItem items={items} />
+        <OldItem items={items} key={index} />
       ))}
     </div>
   );

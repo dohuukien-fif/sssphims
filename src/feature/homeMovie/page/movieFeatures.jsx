@@ -9,6 +9,7 @@ import {
   Route,
   Link,
   useLocation,
+  useNavigate,
 } from "react-router-dom";
 import All from "./../component/tabLisst/allHome/all";
 import Coming from "./../component/tabLisst/comingHome/Comming";
@@ -19,10 +20,14 @@ import MovieListAnime from "./../component/productLisst/movieListAnime";
 import MovieListCinermer from "./../component/productLisst/movieLisstCinermer";
 import MovieLisstBoHot from "../component/productLisst/movieLisstHot/movieLisstBoHot";
 import MovieLisstLeHot from "../component/productLisst/movieLisstHot/movieLisstLeHot";
+import LoadingAll from "./../../../component/Loading";
+
 // import {} from "react-router-dom"
 MovieFeatures.propTypes = {};
 
 function MovieFeatures(props) {
+  const navigate = useNavigate();
+  const [SearchTerm, setSearchTerm] = useState("");
   const [MovieLisst, setMovieLisst] = useState([]);
   const [Loading, setLoading] = useState(true);
   const location = useLocation();
@@ -40,30 +45,30 @@ function MovieFeatures(props) {
     };
     fetchApiMovie();
   }, []);
+
+  //SEARCH DATA
+  const handleSubmit = () => {
+    navigate(`/phim?desCast=${SearchTerm.replace(" ", "+")}`);
+
+    // navigate({ search: SearchTerm.trim("") });
+    // location.search(`${SearchTerm}`);
+  };
   return (
     <div className="movie">
       {Loading ? (
-        <div className="loading">
-          <div class="lds-default">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
+        <LoadingAll />
       ) : (
         <>
           <div className="movie_search">
-            <input type="text" placeholder="Bạn muốn tìm phim gì ?" />{" "}
-            <button>Tìm kiếm</button>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                placeholder="Bạn muốn tìm phim gì ?"
+                onChange={(e) => setSearchTerm(e.target.value)}
+                value={SearchTerm}
+              />{" "}
+              <button type="submit">Tìm kiếm</button>
+            </form>
           </div>
           <div className="movie_container">
             <div className="movie_right">

@@ -1,107 +1,110 @@
-@use  "./../../../sass/index.scss" as *;
+@use "./../../../sass/index.scss" as *;
 
-.watch{
-   background-color: #081b27;
-   // position: relative;
-   min-height: 80vh;
-   .watch_container{
-      background-color: #081b27;
-    .watch_header{
-       position:relative;
-       top: 10%;
-           
+.watch {
+  background-color: #081b27;
+  // position: relative;
+  min-height: 80vh;
+  .watch_container {
+    background-color: #081b27;
+    .watch_header {
+      position: relative;
+      top: 10%;
+
       display: flex;
       flex-direction: column;
-    width: 100%;
-    height: 100%;
-    padding-bottom: 0;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    background-color: #081b27;
-   //  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(14%,rgba(12,39,56,0)),to(#081b27));
-    background-image: linear-gradient(
-180deg,rgba(12,39,56,0) 14%,#081b27);
-    color: #fff;
-   //  z-index: 2;
-    @include mobile{
-      height: 90vh;
-      min-height: 850px;
-    }
-    & > img {
-   //  height: 90vh;
-    min-height: 1100px;
-      overflow: hidden;
       width: 100%;
-      object-fit: cover;
-      opacity: 0.2;
-      // @include mobile{
-      //    height: 90vh;
-      //    min-height: 850px;
-      //  }
-      @include mobile{
-      height: 80vh;
-         min-height: 800px;
-       }
-       @include tablet{
-         height: 50vh;
-            min-height: 800px;
-          }
-    }
-    .watch_content{
-       position: absolute;
-       top: 10%;
-      width: 80%;
+      height: 100%;
+      padding-bottom: 0;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background-color: #081b27;
+      //  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(14%,rgba(12,39,56,0)),to(#081b27));
+      background-image: linear-gradient(
+        180deg,
+        rgba(12, 39, 56, 0) 14%,
+        #081b27
+      );
+      color: #fff;
+      //  z-index: 2;
+      @include mobile {
+        height: 90vh;
+        min-height: 850px;
+      }
+      & > img {
+        //  height: 90vh;
+        min-height: 1100px;
+        overflow: hidden;
+        width: 100%;
+        object-fit: cover;
+        opacity: 0.2;
+        // @include mobile{
+        //    height: 90vh;
+        //    min-height: 850px;
+        //  }
+        @include mobile {
+          height: 80vh;
+          min-height: 800px;
+        }
+        @include tablet {
+          height: 50vh;
+          min-height: 800px;
+        }
+      }
+      .watch_content {
+        position: absolute;
+        top: 10%;
+        width: 80%;
 
-       @include mobile{
+        @include mobile {
           width: 90%;
           left: 5%;
           padding: 0;
           display: flex;
           column-gap: 50px;
-       }
-       @include tablets{
-         top: 20%;
-         width: 85%;
-         left: 1%;
-         padding: 0;
-         display: flex;
-         column-gap: 80px;
-      }
-      @include tablet{
-         top: 20%;
-         margin: auto;
-         width: 60%;
-         left: 15%;
-         padding: 0;
-         display: flex;
-         column-gap: 80px;
-      }
-    }
-    }
-    .watch_body{
-       @include mobile{
+        }
+        @include tablets {
+          top: 20%;
+          width: 85%;
+          left: 1%;
+          padding: 0;
           display: flex;
-       }
+          column-gap: 80px;
+        }
+        @include tablet {
+          top: 20%;
+          margin: auto;
+          width: 60%;
+          left: 15%;
+          padding: 0;
+          display: flex;
+          column-gap: 80px;
+        }
+      }
+    }
+    .watch_body {
+      @include mobiles {
+        display: flex;
+      }
       //  @include tablet{
       //     width: 80%;
       //     margin: auto;
       //  }
-       .watch_video{
-          flex: 3;
-       }
-       .watch_new{
-          & > h2{
-            font-family: Nunito,sans-serif !important;
-             font-size: 21px;
-             font-weight: 600;
-             padding: 3rem 0 3rem 0;
-             color: #ecad23;
-          }
-         flex: 1;
-         margin-right: 5px;
+      .watch_video {
+        flex: 3;
+      }
+      .watch_new {
+        & > h2 {
+          font-family: Nunito, sans-serif !important;
+          font-size: 21px;
+          font-weight: 600;
+          padding: 3rem 0 3rem 0;
+          color: #ecad23;
+        }
+        flex: 1;
+        margin-right: 5px;
       }
     }
-   }
+  }
 }

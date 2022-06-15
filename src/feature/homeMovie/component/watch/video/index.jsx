@@ -35,11 +35,11 @@ function Video({ product, pratice }) {
   const videos = [
     {
       pratice: 1,
-      video: "https://zembed.net/v/JaklIcjAGE.html",
+      video: "//ok.ru/videoembed/3293564635675",
     },
     {
       pratice: 2,
-      video: "https://zembed.net/v/fkKCmOVzoP.html",
+      video: "//ok.ru/videoembed/3293564701211",
     },
     {
       pratice: 3,
@@ -102,32 +102,25 @@ function Video({ product, pratice }) {
     pratice(newpratice);
   };
 
+  console.log(videos[Index]);
   return (
     <div className="video">
       <header className="video_header">
         <div className="video_block">
           <div className="video_play">
             <iframe
-              src={videos[Index].video}
-              frameBorder="0"
+              src={movie[Index].video}
+              frameborder="0"
               width="100%"
               height="100%"
-              allowFullScreen
-              style={{
-                // width: "100%",
-                // height: "100%",
-                position: "absolute",
-                left: "0px",
-                top: "0px",
-                overflow: "hidden",
-              }}
+              allowfullscreen=""
             ></iframe>
           </div>
           <div className="video_pratice">
             <div className="video_choosing">
               <p>CHỌN TẬP PHIM</p>
             </div>
-            <Choosing videos={videos} onChanges={handleChanPratice} />
+            <Choosing videos={movie} onChanges={handleChanPratice} />
           </div>
           <div className="video_waning">
             <p>

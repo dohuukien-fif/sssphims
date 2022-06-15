@@ -13,7 +13,7 @@ function ContineItem({ items }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/phim-le/phim/${items.id}`);
+    navigate(`/trang-chu/phim/${items.id}`);
   };
   return (
     <>

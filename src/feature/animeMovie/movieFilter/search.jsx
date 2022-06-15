@@ -8,13 +8,12 @@ function Search({ onSubmits }) {
   const handleChan = (e) => {
     setSeatch(e.target.value);
   };
-  const handleSub = (e) => {
-    e.preventDefault();
+  const handleSub = () => {
     onSubmits(Seatch);
     setSeatch("");
   };
   return (
-    <form action="" onSubmit={handleSub}>
+    <form onSubmit={handleSub}>
       <input
         value={Seatch}
         type="text"

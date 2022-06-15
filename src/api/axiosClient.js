@@ -1,7 +1,7 @@
 import axios from "axios";
 import queryString from "query-string";
 const axiosClient = axios.create({
-  baseURL: " https://api-json-movie.herokuapp.com",
+  baseURL: "https://api-json-movie.herokuapp.com",
   headers: {
     "Content-type": "application/json",
   },

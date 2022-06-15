@@ -1,25 +1,41 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 TabMenu.propTypes = {};
 
 function TabMenu(props) {
+  const location = useLocation();
+  const Router = [
+    {
+      name: "/Trang-chu",
+      nameTab: "Tất cả phim",
+    },
+    {
+      name: "/Trang-chu/phim-bos",
+      nameTab: "Sắp chiếu",
+    },
+    {
+      name: "/Trang-chu/phim-le",
+      nameTab: "Phim mới",
+    },
+  ];
+
+  const activeTabb = Router.findIndex((e) => e.name === location.pathname);
+
+  console.log(location.pathname, !!activeTabb);
   return (
     <div className="tab">
-      <div className="tab_link">
-        <NavLink end to="/Trang-chu" className="unselecteds">
-          Tất cả phim
-        </NavLink>
-      </div>
-      <div className="tab_link">
-        <NavLink end to="/Trang-chu/phim-bos">
-          Sắp chiếu
-        </NavLink>
-      </div>
-      <div className="tab_link">
-        <NavLink to="/Trang-chu/phim-le">Phim mới</NavLink>
-      </div>
+      {Router.map((item, index) => (
+        <div className="tab_link">
+          <NavLink
+            to={`${item.name}`}
+            className={item.name === location.pathname ? "unselecteds" : ""}
+          >
+            {item.nameTab}
+          </NavLink>
+        </div>
+      ))}
     </div>
   );
 }

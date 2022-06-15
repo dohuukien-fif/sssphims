@@ -2,7 +2,7 @@
 .movie_list{
    .movie_item{
       display: flex;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       cursor: pointer;
       align-items: flex-start;
       .movie_aside{
@@ -12,7 +12,7 @@
          justify-content: center;
          align-items: flex-start;
      & > img{
-        width: 65px;
+        width: 60px;
         height: 80px;
         border-radius: 5px;
         &:hover{
@@ -22,13 +22,15 @@
       }
       .movie_header{
          flex: 3;
-         margin-left: 20px;
+         margin-left: 25px;
          .movie_name{
             width: 90%;
             & > p{
                font-size: 15px;
                color: white;
-               font-weight: 600;
+               font-weight: 700;
+               font-family:Catamaran,sans-serif ;
+               // line-height: 25px;
                &:hover{
                   text-decoration: underline;
                }

@@ -1,21 +1,24 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import { useLocation } from "react-router-dom";
-import SeriesApi from "./../../../api/movieSeries";
+import Pagination from "@mui/material/Pagination";
+import React, { useEffect, useState } from "react";
+import { BiError } from "react-icons/bi";
+import { useLocation, useNavigate } from "react-router-dom";
 import MovieOldList from "../component/product/productList";
 import FilterMovie from "../movieFilter/filterMovie";
-import "./styles.scss";
-import { BiError } from "react-icons/bi";
+import SeriesApi from "./../../../api/movieSeries";
+import LoadingAll from "./../../../component/Loading";
 import Search from "./../movieFilter/search";
-import Pagination from "@mui/material/Pagination";
+import "./styles.scss";
 OldMovieFeatures.propTypes = {};
 
 function OldMovieFeatures(props) {
   const location = useLocation();
+  const navigate = useNavigate();
+  const [SearchTerm, setSearchTerm] = useState("");
   console.log(location);
   const [OldMovieList, setOldMovieList] = useState([]);
   const [SeatchsItem, setSeatchItem] = useState("");
   const [Loading, setLoading] = useState(true);
+
   // const [Paganation, setPaganation] = useState({
   //   _page:1,
   //   _limit:10
@@ -68,31 +71,21 @@ function OldMovieFeatures(props) {
   //   category: cate,
   // }));
   // console.log(newSearch);
+  const handleSubmitSearch = (value) => {
+    navigate(`/phim?desCast=${value.replace(" ", "+")}`);
 
+    // navigate({ search: SearchTerm.trim("") });
+    // location.search(`${SearchTerm}`);
+  };
   return (
     <div className="old">
       {Loading ? (
-        <div className="loading">
-          <div class="lds-default">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
+        <LoadingAll />
       ) : (
         <>
           <div className="old_container">
             <div className="old_search">
-              <Search onSubmits={handleSearch} />
+              <Search onSubmits={handleSubmitSearch} />
             </div>
             <div className="old_title">PHIM MỚI CẬP NHẬT</div>
 

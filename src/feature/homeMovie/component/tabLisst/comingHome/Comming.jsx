@@ -10,7 +10,7 @@ function Comming({ comingMovie }) {
       {comingMovie
         .filter((x) => x.categoryName === "coming")
         .map((items, index) => (
-          <ComingItem items={items} />
+          <ComingItem items={items} key={index} />
         ))}
     </div>
   );

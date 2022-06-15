@@ -8,6 +8,7 @@ import "./description.scss";
 
 import DetaiList from "./../component/description/descriptions/detailLisst";
 import CountineList from "../component/description/countine/countineList";
+import LoadingAll from "./../../../component/Loading";
 Description.propTypes = {};
 
 function Description(props) {
@@ -22,22 +23,7 @@ function Description(props) {
   return (
     <div className="description">
       {Loading ? (
-        <div className="loading">
-          <div class="lds-default">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
+        <LoadingAll />
       ) : (
         <>
           <div className="header">
@@ -59,7 +45,7 @@ function Description(props) {
               <DetaiList product={product} />
             </div>
           </div>
-          <div className="trailer">
+          <div className="trailer" id="trailer">
             <div className="trailer_container">
               <div className="trailer_title">
                 <p>Official trailer:</p>
@@ -80,7 +66,7 @@ function Description(props) {
           <div className="countine">
             <div className="countine_title">CÓ THỂ BẠN CŨNG MUỐN XEM</div>
             <div className="countine_container">
-              <CountineList />
+              <CountineList categoty={product.nation} />
             </div>
           </div>
         </>

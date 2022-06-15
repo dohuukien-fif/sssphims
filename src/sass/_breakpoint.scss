@@ -1,21 +1,26 @@
 @use "./variables" as *;
 @mixin mobile {
-    @media only screen and (min-width:$mobile-width) {
-        @content;
-    }
+  @media only screen and (min-width: $mobile-width) {
+    @content;
+  }
+}
+@mixin mobiles {
+  @media only screen and (min-width: $mobiles-width) {
+    @content;
+  }
 }
 @mixin mobileheader {
-    @media only screen and (max-width:$tabletsheader-width) {
-        @content;
-    }
+  @media only screen and (max-width: $tabletsheader-width) {
+    @content;
+  }
 }
 @mixin tablets {
-    @media only screen and (min-width:$tablets-width) {
-        @content;
-    }
+  @media only screen and (min-width: $tablets-width) {
+    @content;
+  }
 }
 @mixin tablet {
-    @media only screen and (min-width:$tablet-width) {
-        @content;
-    }
+  @media only screen and (min-width: $tablet-width) {
+    @content;
   }
+}

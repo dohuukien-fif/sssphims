@@ -7,6 +7,7 @@ import InforWatch from "../component/watch/info";
 import "./watchTv.scss";
 import Video from "../component/watch/video";
 import WatchContainer from "./../component/watch/moviHot/index";
+import LoadingAll from "./../../../component/Loading";
 WatchTv.propTypes = {};
 
 function WatchTv(props) {
