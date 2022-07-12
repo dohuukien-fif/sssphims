@@ -11,7 +11,7 @@ function movieLisstBoHot({ boHotLisst }) {
       {boHotLisst
         .filter((x) => x.categoryName === "phim")
         .map((items, index) => (
-          <MovieItemBoHot items={items} />
+          <MovieItemBoHot items={items} key={index} />
         ))}
     </div>
   );

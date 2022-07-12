@@ -1,41 +1,63 @@
-@use  "./../../../../sass/index.scss" as *;
-.movie_list{
-   .movie_item{
+@use "./../../../../sass/index.scss" as *;
+.movie_list {
+  .movie_item {
+    display: flex;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    align-items: flex-start;
+    .movie_aside {
+      flex: 1;
       display: flex;
-      margin-bottom: 1.5rem;
-      cursor: pointer;
+      /* margin: auto; */
+      justify-content: center;
       align-items: flex-start;
-      .movie_aside{
-         flex: 1;
-         display: flex;
-         /* margin: auto; */
-         justify-content: center;
-         align-items: flex-start;
-     & > img{
+      & > img {
         width: 60px;
         height: 80px;
         border-radius: 5px;
-        &:hover{
-        opacity: 0.8;
+        &:hover {
+          opacity: 0.8;
+        }
       }
-     }
+    }
+    .movie_header {
+      flex: 3;
+      margin-left: 25px;
+      .movie_evanta {
+        text-align: center;
+
+        padding: 0.5rem;
+
+        display: flex;
+        .active__evanlue {
+          & > svg {
+            color: yellow !important;
+          }
+        }
+        & > p {
+          & > svg {
+            color: white;
+
+            font-size: 17px;
+          }
+        }
+        @include tablets {
+          text-align: left;
+        }
       }
-      .movie_header{
-         flex: 3;
-         margin-left: 25px;
-         .movie_name{
-            width: 90%;
-            & > p{
-               font-size: 15px;
-               color: white;
-               font-weight: 700;
-               font-family:Catamaran,sans-serif ;
-               // line-height: 25px;
-               &:hover{
-                  text-decoration: underline;
-               }
-            }
-         }
+      .movie_name {
+        width: 90%;
+        & > p {
+          font-size: 15px;
+          color: white;
+          font-weight: 700;
+          font-family: Catamaran, sans-serif;
+          // line-height: 25px;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
       }
-   }
+    }
+  }
 }

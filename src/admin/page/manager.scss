@@ -1,0 +1,86 @@
+@use "./../../sass/index.scss" as *;
+
+.manager {
+  width: 95%;
+
+  margin: 20px auto;
+
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .manager__btn {
+    & > button {
+      padding: 10px 20px;
+      color: white;
+      background-color: #232c39;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+
+      border: 1px solid gray;
+    }
+  }
+  .manager__swap {
+    margin: 15px;
+
+    padding: 15px;
+
+    box-shadow: 0 7px 24px rgb(0 0 0 / 9%);
+
+    background-color: #fff;
+
+    border-radius: 10px;
+
+    color: black;
+
+    width: 100%;
+    min-width: 850px;
+    .manager__title {
+      font-size: 25px;
+      font-weight: 800;
+
+      margin: 25px;
+    }
+    .manager__table {
+      border: 1px solid gray;
+
+      .manager__top {
+        display: flex;
+
+        font-size: 16px;
+
+        padding: 10px;
+
+        border-bottom: 1px solid gray;
+        .manager__top--left {
+          flex: 2;
+
+          display: flex;
+          & > span:first-child {
+            flex: 2;
+          }
+          & > span {
+            flex: 1;
+
+            font-weight: 600;
+          }
+        }
+        .manager__top--right {
+          flex: 1;
+          display: flex;
+          & > span:first-child {
+            flex: 3;
+            font-weight: 600;
+          }
+          & > span:last-child {
+            flex: 1;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}

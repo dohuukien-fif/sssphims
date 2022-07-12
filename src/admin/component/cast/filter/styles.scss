@@ -1,0 +1,25 @@
+@use "./../../../../sass/index.scss" as *;
+.filter__nation {
+  margin: 15px;
+  .filter__nation--title {
+    font-size: 20px;
+    font-weight: 700;
+
+    margin-bottom: 10px;
+  }
+  .filter__nation--form {
+    & > select {
+      padding: 10px;
+
+      width: 100%;
+
+      @include mobile {
+        min-width: 250px;
+        width: 250px;
+      }
+      & > option {
+        margin: 10px;
+      }
+    }
+  }
+}

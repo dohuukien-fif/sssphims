@@ -1,0 +1,135 @@
+@use "./../../../../sass/index.scss" as *;
+.modalManager.active--modalManager {
+  opacity: 1 !important;
+  visibility: visible !important;
+
+  transform: scale(1) !important;
+}
+.modalManager {
+  cursor: pointer;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 7777;
+  opacity: 0;
+  visibility: hidden;
+
+  transform: scale(0);
+
+  transition: 0.3s ease-in-out !important;
+
+  &__swap {
+    position: absolute;
+
+    width: 100%;
+
+    background: #2b3646;
+
+    border-radius: 8px;
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: 200px;
+
+    padding: 15px;
+
+    top: 0;
+    bottom: 0;
+    @include tablets {
+      bottom: auto;
+      width: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .modalManager__block {
+      margin: 20px;
+
+      .modalManager__group--image {
+        display: flex;
+        flex-direction: column;
+
+        margin: 10px;
+        & > label {
+          & > span {
+            padding: 10px;
+
+            color: white;
+
+            background: blue;
+          }
+        }
+        & > img {
+          width: 250px;
+        }
+      }
+      .modalManager__group {
+        display: flex;
+
+        column-gap: 10px;
+
+        margin-top: 10px;
+
+        .modalManager__group--second {
+          width: 100%;
+
+          & > label {
+            font-weight: 600;
+            font-size: 16px;
+          }
+          & > input {
+            width: 100%;
+            height: 40px;
+
+            border: 1px solid rgb(91, 90, 90);
+            border-radius: 5px;
+
+            padding: 0 15px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            color: black;
+
+            margin-top: 10px;
+            &:focus {
+              border: 2px solid black;
+            }
+          }
+          .modalManager__group--grende {
+            display: flex;
+            align-items: center;
+
+            column-gap: 10px;
+          }
+        }
+        .modalManager__group--btn {
+          margin-left: auto;
+
+          display: flex;
+
+          column-gap: 10px;
+          & > button {
+            padding: 10px;
+
+            color: white;
+
+            border: none;
+          }
+          & > button:first-child {
+            background: red;
+          }
+          & > button:last-child {
+            background: green;
+          }
+        }
+      }
+    }
+  }
+}

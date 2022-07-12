@@ -14,7 +14,7 @@ const AnimeApi = {
     return axiosClient.post(url, data);
   },
   update(data) {
-    const url = `/anime /${data}`;
+    const url = `/anime /${data.id}`;
     return axiosClient.get(url, data);
   },
   detele(id) {

@@ -56,6 +56,19 @@
         padding: 1rem;
       }
       .info_evanta {
+        display: flex;
+        .active__evanlue {
+          & > svg {
+            color: yellow !important;
+          }
+        }
+        & > p {
+          & > svg {
+            color: white;
+
+            font-size: 17px;
+          }
+        }
         @include mobile {
           // padding-bottom: 0;
           margin-right: 10px;

@@ -1,0 +1,60 @@
+.manager__item {
+  display: flex;
+
+  margin-top: 10px;
+
+  padding: 10px;
+
+  cursor: pointer;
+
+  transition: 200ms ease-in-out;
+
+  &:hover {
+    background: rgb(239, 238, 238);
+
+    border-radius: 5px;
+  }
+  .manager__item--left {
+    flex: 2;
+
+    display: flex;
+
+    .manager__name,
+    .manager__gender,
+    .manager__birthDay,
+    .manager__position,
+    .manager__identification,
+    .manager__telephone {
+      flex: 1;
+    }
+  }
+  .manager__item--right {
+    flex: 1;
+
+    display: flex;
+
+    .manager__adress {
+      flex: 3;
+    }
+    .manager__action {
+      flex: 1;
+
+      & > button {
+        padding: 10px;
+
+        background: green;
+
+        color: white;
+
+        cursor: pointer;
+
+        border: 1px solid gray;
+
+        opacity: 0.8;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

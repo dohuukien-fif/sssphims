@@ -34,7 +34,11 @@ function OldMovieFeatures(props) {
   });
   const datasearch = location.pathname.split("=")[1];
   const params = location.search;
-  const { dataSearch, LoadingSearch } = useSearchData(params);
+
+  console.log("params", params);
+  const { dataSearch, LoadingSearch } = useSearchData(
+    params.replaceAll("%20", "")
+  );
   console.log("dataSearch", dataSearch);
   useEffect(() => {
     const fetchDataOldMovie = async () => {
@@ -81,6 +85,7 @@ function OldMovieFeatures(props) {
 
   // console.log(params.split("=")[1].replace("+", " "));
 
+  console.log("dataSearch", dataSearch);
   return (
     <div className="old">
       <div className="old_container">

@@ -37,9 +37,10 @@ function Header(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    navigate(`/search?desCast=${SearchTerm.replace(" ", "+")}`);
+    navigate(`/phim?desCast=${SearchTerm.replace(/ /g, "+")}`);
 
     setopenSearch(false);
+    setSearchTerm("");
     // navigate({ search: SearchTerm.trim("") });
     // location.search(`${SearchTerm}`);
   };

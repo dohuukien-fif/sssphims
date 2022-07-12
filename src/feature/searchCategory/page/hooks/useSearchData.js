@@ -4,7 +4,7 @@ import ProductApi from "../../../../api/movieHome";
 export default function useSearchData(datas) {
   const [dataSearch, setproduct] = React.useState([]);
   const [LoadingSearch, setLoading] = React.useState(true);
-  console.log("datas", datas);
+
   React.useEffect(() => {
     setLoading(true);
     const setdaSearchApi = async () => {
@@ -13,10 +13,13 @@ export default function useSearchData(datas) {
       const data = res.filter(
         (e) =>
           e.category
-            .replaceAll("-", "")
+            .replace(/đ/g, "d")
+            .replace(/Đ/g, "D")
+            .replace(/ /g, "")
             .normalize("NFD")
             .replace(/[\u0300-\u036f]/g, "")
-            .toLowerCase() === datas.toLowerCase()
+            .toLowerCase() ===
+          datas.replaceAll("-", "").replace(/ /g, "").toLowerCase()
       );
 
       console.log("datas", datas);

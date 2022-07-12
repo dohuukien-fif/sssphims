@@ -66,7 +66,7 @@ function Description(props) {
           <div className="countine">
             <div className="countine_title">CÓ THỂ BẠN CŨNG MUỐN XEM</div>
             <div className="countine_container">
-              <CountineList />
+              <CountineList categoty={product.category} />
             </div>
           </div>
         </>

@@ -11,7 +11,7 @@ function movieLisstCinermer({ cinermerLisst }) {
       {cinermerLisst
         .filter((x) => x.categoryName === "cinermer")
         .map((items, index) => (
-          <MovieItemCinermer items={items} />
+          <MovieItemCinermer items={items} key={index} />
         ))}
     </div>
   );

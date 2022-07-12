@@ -1,0 +1,97 @@
+@use "./../sass/index.scss" as *;
+.admin {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 100;
+
+  display: flex;
+
+  &__container {
+    box-shadow: 0 7px 24px rgb(0 0 0 / 9%);
+
+    background-color: #fff;
+
+    flex: 1;
+
+    font-size: 14px;
+
+    position: relative;
+    overflow: hidden;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    overflow: auto;
+    .admin__left.active {
+      left: 0;
+    }
+    .admin__left {
+      background-color: #012530;
+      color: white;
+
+      max-width: 300px;
+      width: 300px;
+
+      padding: 15px;
+
+      position: fixed;
+
+      bottom: 0;
+      top: 0;
+
+      left: -100%;
+
+      transition: 500ms ease-in-out !important;
+
+      z-index: 100;
+      @include tablets {
+        position: relative;
+        left: 0;
+      }
+
+      .admin__left--logo {
+        margin: auto;
+
+        & > img {
+          max-width: 150px;
+          width: 150px;
+        }
+      }
+    }
+    .admin__right {
+      flex: 1;
+
+      display: flex;
+      flex-direction: column;
+      background-color: #232c39;
+
+      color: white;
+
+      overflow: auto;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .admin__navTop {
+        margin-left: auto;
+        margin-right: 10px;
+        margin-top: 10px;
+
+        & > svg {
+          font-size: 40px;
+          cursor: pointer;
+        }
+
+        @include tablets {
+          display: none;
+        }
+      }
+    }
+  }
+}

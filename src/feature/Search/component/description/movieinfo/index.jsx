@@ -1,17 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./styles.scss";
 import { AiOutlineStar } from "react-icons/ai";
 import { FcFlashOn } from "react-icons/fc";
 import { BiTimeFive } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
+import ProductApi from "../../../../../api/movieHome";
 MoviInfor.propTypes = {
   product: PropTypes.object,
 };
 
 function MoviInfor({ product }) {
-  const { name, premiere, practice, nation, cast, director, year, date, time } =
-    product;
+  const {
+    name,
+    premiere,
+    practice,
+    nation,
+    cast,
+    director,
+    year,
+    date,
+    time,
+    evaluate,
+    id,
+  } = product;
   const dates = new Date();
   const dataMovie = `${dates.getDate()}/ ${
     dates.getMonth() + 1
@@ -29,6 +41,24 @@ function MoviInfor({ product }) {
         .replace(/[\u0300-\u036f]/g, "")}`
     );
   };
+  const dataIcon = [
+    <AiOutlineStar />,
+    <AiOutlineStar />,
+    <AiOutlineStar />,
+    <AiOutlineStar />,
+    <AiOutlineStar />,
+  ];
+
+  const [inxEvalue, setIdxEvanlue] = useState(0);
+
+  const handleClickEvanlue = async (id, evaluate) => {
+    setIdxEvanlue(evaluate);
+
+    const newValue = { id, evaluate };
+
+    await ProductApi.update(newValue);
+  };
+
   return (
     <div className="info">
       <header className="info_header">
@@ -37,11 +67,18 @@ function MoviInfor({ product }) {
         </div>
         <div className="info_user">
           <div className="info_evanta">
-            <AiOutlineStar style={{ fontSize: "17px", color: "yellow" }} />
-            <AiOutlineStar style={{ fontSize: "17px", color: "yellow" }} />
-            <AiOutlineStar style={{ fontSize: "17px", color: "yellow" }} />
-            <AiOutlineStar style={{ fontSize: "17px", color: "yellow" }} />
-            <AiOutlineStar style={{ fontSize: "17px", color: "yellow" }} />
+            {dataIcon.map((item, idx) => (
+              <p
+                className={
+                  idx <= (inxEvalue > 0 ? inxEvalue : evaluate)
+                    ? "active__evanlue"
+                    : ""
+                }
+                onClick={() => handleClickEvanlue(id, idx)}
+              >
+                {item}
+              </p>
+            ))}{" "}
           </div>
           <div className="info_premiere">
             <FcFlashOn style={{ fontSize: "17px" }} />

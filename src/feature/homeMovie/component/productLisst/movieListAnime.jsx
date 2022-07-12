@@ -11,7 +11,7 @@ function movieListAnime({ animeLisst }) {
       {animeLisst
         .filter((x) => x.categoryName === "anime" || x.categoryName === "Toys")
         .map((items, index) => (
-          <MovieItemAnime items={items} />
+          <MovieItemAnime items={items} key={index} />
         ))}
     </div>
   );

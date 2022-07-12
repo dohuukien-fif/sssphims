@@ -10,7 +10,7 @@ function AllTab({ allMovie }) {
       {allMovie
         .filter((x) => x.categoryName === "phim")
         .map((items, index) => (
-          <AllItem items={items} key={index} />
+          <AllItem items={items} key={index} index={index} />
         ))}
     </div>
   );

@@ -48,7 +48,7 @@ function MovieFeatures(props) {
 
   //SEARCH DATA
   const handleSubmit = () => {
-    navigate(`/phim?desCast=${SearchTerm.replace(" ", "+")}`);
+    navigate(`/phim?desCast=${SearchTerm.replace(/ /g, "+")}`);
 
     // navigate({ search: SearchTerm.trim("") });
     // location.search(`${SearchTerm}`);

@@ -27,7 +27,7 @@ function TabMenu(props) {
   return (
     <div className="tab">
       {Router.map((item, index) => (
-        <div className="tab_link">
+        <div className="tab_link" key={index}>
           <NavLink
             to={`${item.name}`}
             className={item.name === location.pathname ? "unselecteds" : ""}

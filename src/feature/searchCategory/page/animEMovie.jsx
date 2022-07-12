@@ -1,15 +1,12 @@
-import Pagination from "@mui/material/Pagination";
 import React, { useEffect, useState } from "react";
 import { BiError } from "react-icons/bi";
 import { useLocation, useNavigate } from "react-router-dom";
 import ProductApi from "../../../api/movieHome";
 import MovieOldList from "../component/product/productList";
-
-import FilterMovie from "../movieFilter/filterMovie";
-import Search from "./../movieFilter/search";
+import Loading from "./../../../component/Loading/index";
 import useSearchData from "./hooks/useSearchData";
 import "./styles.scss";
-import Loading from "./../../../component/Loading/index";
+
 CategoryFeatures.propTypes = {};
 
 function CategoryFeatures(props) {
@@ -41,10 +38,10 @@ function CategoryFeatures(props) {
     "tâm lý tình cam"?.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
   );
 
+  console.log(params?.replaceAll("-", " ").split("/")[2]);
+
   console.log(params);
-  const { dataSearch, LoadingSearch } = useSearchData(
-    params?.replaceAll("-", " ").split("/")[2]
-  );
+  const { dataSearch, LoadingSearch } = useSearchData(params?.split("/")[2]);
   console.log("dataSearch", dataSearch);
   useEffect(() => {
     const fetchDataOldMovie = async () => {

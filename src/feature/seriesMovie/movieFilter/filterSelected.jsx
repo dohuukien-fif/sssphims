@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import "./styles.scss";
+import SeriesApi from "../../../api/movieSeries";
 FilterSelected.propTypes = {};
 
 function FilterSelected({ onchanges }) {
+  const [dataCategory, setdataCategory] = useState([]);
+  const [dataNation, setdataNation] = useState([]);
   const [categories, setcategories] = useState({});
   const handlechange = (e) => {
     const { name, value } = e.target;
@@ -21,6 +24,18 @@ function FilterSelected({ onchanges }) {
     //   nation: "",
     // });
   };
+
+  useEffect(() => {
+    const fetchApi = async () => {
+      const res = await SeriesApi.getAll();
+
+      const newCategory = res.map((item) => item.category);
+      setdataCategory([...new Set(newCategory)]);
+
+      setdataNation([...new Set(res.map((item) => item.nation))]);
+    };
+    fetchApi();
+  }, []);
   return (
     <div className="select ">
       <div className="select_container">
@@ -34,24 +49,22 @@ function FilterSelected({ onchanges }) {
         <div className="select2">
           <select name="category" id="select_movie" onChange={handlechange}>
             <option>--Thể loại--</option>
-            <option value="Phim hoạt hình">Phim hoạt hình</option>
-
-            {/* <option value="Cổ Trang, Tình Cảm">Cổ Trang, Tình Cảm</option> */}
-            <option value="Tâm Lý - Tình Cảm">Tâm Lý - Tình Cảm</option>
-
-            <option value="Cổ Trang - Thần Thoại, Tâm Lý - Tình">
-              Cổ Trang - Thần Thoại, Tâm Lý - Tình
-            </option>
-            <option value="Phim hành động">Phim hành động</option>
+            {dataCategory.map((item, idx) => (
+              <Fragment key={idx}>
+                <option value={item}>{item}</option>
+              </Fragment>
+            ))}
           </select>
         </div>
         <div className="select3">
           <select name="nation" id="select_movie" onChange={handlechange}>
             <option>--Quốc gia--</option>
-            <option value="Nhật Bản">Nhật Bản</option>
-            <option value="Mỹ">Mỹ</option>
-            <option value="Thái Lan">Thái Lan</option>
-            <option value="Hàn Quốc">Hàn Quốc</option>
+            {dataNation.map((item, idx) => (
+              <Fragment key={idx}>
+                <option value={item}>{item}</option>
+              </Fragment>
+            ))}
+
             {/* <option value="2017">2017</option> */}
           </select>
         </div>

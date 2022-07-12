@@ -1,0 +1,90 @@
+@use "./../../../sass/index.scss" as *;
+.sideBar {
+  margin-top: 20px;
+  .sideBar__swap {
+    display: flex;
+    flex-direction: column;
+
+    margin: 0 10px;
+    .sideBar__group {
+      display: flex;
+
+      column-gap: 10px;
+
+      font-size: 18px;
+
+      margin-top: 10px;
+
+      padding: 15px;
+
+      cursor: pointer;
+
+      transition: 200ms ease-in-out;
+
+      position: relative;
+
+      &:hover {
+        background: rgb(39, 39, 224);
+
+        border-top-left-radius: 10px;
+        border-top-left-radius: 10px;
+        transform: translateX(5px);
+      }
+
+      &:hover > .sideBar__group--second {
+        opacity: 1;
+        visibility: visible;
+
+        transform: scale(1);
+      }
+
+      .sideBar__group--second {
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease;
+
+        position: absolute;
+
+        width: 100%;
+
+        top: 97%;
+        left: 0;
+
+        background: rgb(39, 39, 224);
+
+        border-radius: 5px;
+
+        transform: scale(0.7);
+
+        transform-origin: top;
+
+        & > ul {
+          & > li {
+            padding: 15px;
+
+            margin: 5px;
+
+            transition: 200ms ease-in-out;
+
+            border-radius: 10px;
+            &:hover {
+              background: blue;
+
+              transform: translateX(5px);
+            }
+          }
+        }
+      }
+      .sideBar__icon {
+        & > svg {
+          font-size: 25px;
+
+          color: white;
+        }
+      }
+      .sideBar__name {
+        font-weight: 600;
+      }
+    }
+  }
+}

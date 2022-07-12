@@ -11,7 +11,7 @@ function movieLisstLeHot({ leHotLisst }) {
       {leHotLisst
         .filter((x) => x.categoryName === "le")
         .map((items, index) => (
-          <MovieItemBoHot items={items} />
+          <MovieItemBoHot items={items} key={index} />
         ))}
     </div>
   );

@@ -14,7 +14,7 @@ function Search({ onSubmits }) {
     setSeatch("");
   };
   return (
-    <form action="" onSubmit={handleSub}>
+    <form onSubmit={handleSub}>
       <input
         value={Seatch}
         type="text"

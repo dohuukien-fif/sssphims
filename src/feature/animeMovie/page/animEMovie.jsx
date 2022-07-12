@@ -71,7 +71,7 @@ function OldMovieFeatures(props) {
   // console.log(newSearch);
   //SEARCH
   const handleSubmitSearch = (value) => {
-    navigate(`/phim?desCast=${value.replace(" ", "+")}`);
+    navigate(`/phim?desCast=${value.replace(/ /g, "+")}`);
 
     // navigate({ search: SearchTerm.trim("") });
     // location.search(`${SearchTerm}`);

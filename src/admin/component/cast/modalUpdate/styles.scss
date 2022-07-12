@@ -1,0 +1,261 @@
+@use "./../../../../sass/index.scss" as *;
+.cast__modal.active__cast {
+  opacity: 1 !important;
+  visibility: visible !important;
+
+  transform: scale(1) !important;
+}
+.cast__modal {
+  cursor: pointer;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 7777;
+  opacity: 0;
+  visibility: hidden;
+
+  transform: scale(0);
+
+  transition: 0.3s ease-in-out !important;
+
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .cast__modal--swap {
+    position: absolute;
+
+    width: 100%;
+
+    background: #2b3646;
+
+    border-radius: 8px;
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 15px;
+
+    top: 0;
+    bottom: 0;
+
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    @include tablets {
+      bottom: auto;
+      width: 60%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      min-height: 200px;
+
+      padding: 30px;
+    }
+
+    .cast__modal--title {
+      font-weight: 700;
+      font-size: 20px;
+
+      color: rgb(225, 221, 221);
+    }
+
+    .cast__modal--form {
+      display: flex;
+      flex-direction: column;
+
+      .cast__submit {
+        display: flex;
+
+        column-gap: 10px;
+
+        margin-left: auto;
+
+        margin-top: 15px;
+        margin-bottom: 15px;
+
+        & > button {
+          padding: 10px;
+
+          color: white;
+
+          cursor: pointer;
+
+          border: none;
+        }
+        & > button:first-child {
+          background: red;
+        }
+        & > button:last-child {
+          background: green;
+        }
+      }
+      .cast__modal--group {
+        display: flex;
+        flex-direction: column;
+
+        column-gap: 10px;
+
+        margin-top: 10px;
+
+        row-gap: 15px;
+
+        & > img {
+          display: inline-flex;
+
+          width: 200px;
+          height: 200px;
+
+          border-radius: 7px;
+        }
+        & > label {
+          font-weight: 600;
+          font-size: 16px;
+
+          & > span {
+            padding: 10px;
+
+            cursor: pointer;
+
+            border: none;
+
+            background: blue;
+
+            color: white;
+
+            margin-top: 10px;
+          }
+        }
+
+        & > input[type="file"] {
+          display: none;
+        }
+        & > input {
+          width: 100%;
+          height: 45px;
+
+          border: 1px solid rgb(91, 90, 90);
+          border-radius: 5px;
+
+          padding: 0 15px;
+
+          font-size: 14px;
+          font-weight: 600;
+
+          color: black;
+
+          margin-top: 10px;
+          &:focus {
+            border: 2px solid black;
+          }
+        }
+        & > textarea {
+          min-height: 200px;
+
+          padding: 10px 15px;
+        }
+      }
+    }
+  }
+  .cast__confirm.active__confirm {
+    opacity: 1 !important;
+    visibility: visible !important;
+
+    transform: scale(1) !important;
+  }
+  .cast__confirm {
+    cursor: pointer;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 7777;
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(0);
+
+    transition: 0.3s ease-in-out !important;
+
+    .cast__confirm--swap {
+      position: absolute;
+
+      width: 100%;
+
+      background: white;
+
+      border-radius: 8px;
+
+      color: white;
+
+      display: flex;
+      flex-direction: column;
+
+      padding: 15px;
+
+      top: 0;
+      bottom: 0;
+
+      @include tablets {
+        bottom: auto;
+        width: 60%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        min-height: 200px;
+
+        padding: 30px;
+      }
+      .cast__confirm--title {
+        color: black;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 20px;
+        font-weight: 700;
+
+        border-bottom: 2px solid gray;
+
+        padding-bottom: 10px;
+      }
+      .cast__confirm--btn {
+        margin-left: auto;
+        margin-top: auto;
+
+        display: flex;
+
+        column-gap: 10px;
+
+        & > button {
+          padding: 10px;
+
+          cursor: pointer;
+
+          border: none;
+
+          color: white;
+        }
+        & > button {
+          background: red;
+        }
+        & > button:last-child {
+          background: blue;
+        }
+      }
+    }
+  }
+}

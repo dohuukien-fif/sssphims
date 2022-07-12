@@ -1,0 +1,100 @@
+@use "./../../sass/index.scss" as *;
+.cast {
+  width: 95%;
+
+  margin: 20px auto;
+
+  .cast__btn {
+    display: flex;
+    justify-content: space-between;
+    .cast__btn--create {
+      & > button {
+        padding: 15px 25px;
+
+        border: none;
+
+        cursor: pointer;
+
+        background: blue;
+
+        color: white;
+
+        display: flex;
+        align-items: center;
+
+        column-gap: 10px;
+
+        font-weight: 700;
+        font-size: 15px;
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+
+  .cast__swap {
+    .cast__list {
+      display: flex;
+      flex-wrap: wrap;
+
+      column-gap: 20px;
+    }
+    .cast__item {
+      flex-basis: calc(50% - 10px);
+
+      margin-top: 15px;
+
+      cursor: pointer;
+
+      @include mobile {
+        flex-basis: calc(33.333% - 20px);
+      }
+      @include tablet {
+        flex-basis: calc(25% - 20px);
+      }
+      &:hover {
+        opacity: 0.7;
+      }
+      .cast__figust {
+        min-height: 350px;
+
+        position: relative;
+        & > img {
+          display: inline-flex;
+
+          width: 100%;
+
+          min-height: 350px;
+          height: 350px;
+
+          object-fit: cover;
+          flex-shrink: 0;
+
+          border-radius: 10px;
+        }
+        & > svg {
+          position: absolute;
+
+          top: 50%;
+          left: 50%;
+
+          transform: translate(-50%, -50%);
+
+          font-size: 55px;
+
+          opacity: 0;
+          visibility: hidden;
+          transition: all 500ms ease;
+        }
+        &:hover > svg {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+      .cast__name {
+        margin-left: 10px;
+      }
+    }
+  }
+}

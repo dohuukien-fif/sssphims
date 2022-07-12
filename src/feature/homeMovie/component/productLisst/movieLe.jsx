@@ -11,7 +11,7 @@ function movieLe({ leLisst }) {
       {leLisst
         .filter((x) => x.categoryName === "le" || x.categoryName === "Clothing")
         .map((items, index) => (
-          <MovieItemLe items={items} />
+          <MovieItemLe items={items} key={index} />
         ))}
     </div>
   );

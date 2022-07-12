@@ -14,7 +14,7 @@ const OldApi = {
     return axiosClient.post(url, data);
   },
   update(data) {
-    const url = `/oldMove/${data}`;
+    const url = `/oldMove/${data.id}`;
     return axiosClient.get(url, data);
   },
   detele(id) {
