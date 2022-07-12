@@ -13,9 +13,13 @@
   .nav_link {
     display: flex;
     align-items: center;
+
+    height: 60px;
     @include tablet {
       width: 71%;
       margin: auto;
+
+      height: 80px;
     }
   }
   .search {
