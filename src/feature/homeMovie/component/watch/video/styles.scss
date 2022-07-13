@@ -36,6 +36,8 @@
         .video_action {
           display: flex;
           flex-wrap: wrap;
+
+          row-gap: 10px;
           .btn_action {
             & > button {
               width: 38px;
