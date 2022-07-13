@@ -123,7 +123,9 @@ const MovieModal = ({
             <p>Thêm tập phim mới</p>
           </div>
           <div className="confirm__bottom">
-            <button onClick={handleSubmit}>Đồng ý</button>
+            <button type="button" onClick={handleSubmit}>
+              Đồng ý
+            </button>
             <button onClick={handleIsClose}>Trở về</button>
           </div>
         </div>

@@ -26,7 +26,7 @@ function Video({ product, pratice }) {
 
   // })
 
-  const { movie } = product;
+  const { movie, nation } = product;
   const location = useLocation();
   console.log(location);
   //   const { movie } = product;
@@ -63,7 +63,7 @@ function Video({ product, pratice }) {
     const fetApiRandom = async () => {
       try {
         const res = await ProductApi.getAll();
-        setMovieRandom(res);
+        setMovieRandom(res.filter((e) => e.nation === nation));
         console.log(res);
       } catch (error) {
         console.log(error);

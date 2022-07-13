@@ -53,12 +53,15 @@
     bottom: 0;
     top: 0;
 
+    overflow-y: scroll;
+
     @include tablets {
       bottom: auto;
       width: 50%;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      max-height: 90%;
     }
 
     .newModalManager__block {
@@ -79,6 +82,9 @@
         }
         & > img {
           width: 250px;
+          height: 250px;
+
+          object-fit: cover;
         }
       }
       .newModalManager__group {

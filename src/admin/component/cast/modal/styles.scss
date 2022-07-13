@@ -57,9 +57,9 @@
       left: 50%;
       transform: translate(-50%, -50%);
 
-      min-height: 200px;
-
       padding: 30px;
+      min-height: 200px;
+      max-height: 80%;
     }
 
     .cast__modal--title {
@@ -107,11 +107,25 @@
 
         margin-top: 10px;
 
+        & > select {
+          padding: 10px;
+
+          font-weight: 700;
+          font-size: 15px;
+
+          width: 100%;
+
+          @include tablet {
+            width: 50%;
+          }
+        }
         & > img {
           display: inline-flex;
 
           width: 300px;
           height: 300px;
+
+          object-fit: cover;
         }
         & > label {
           font-weight: 600;

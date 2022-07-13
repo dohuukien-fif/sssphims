@@ -31,6 +31,14 @@ function CountineItem({ items }) {
 
     await SeriesApi.update(newValue);
   };
+  const handleNavigeteCategory = (value) => {
+    navigate(
+      `/category/${value
+        ?.replaceAll(" ", "-")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")}`
+    );
+  };
   return (
     <div className="countine_item" key={items.id}>
       <div className="countine_adside" onClick={handleClick}>
@@ -54,7 +62,10 @@ function CountineItem({ items }) {
         <div className="countine_name" onClick={handleClick}>
           <p>{name}</p>
         </div>
-        <div className="countine_premiere">
+        <div
+          className="countine_premiere"
+          onClick={() => handleNavigeteCategory(premiere)}
+        >
           <FcFlashOn style={{ fontSize: "17px" }} />
           <p>{premiere}</p>
         </div>

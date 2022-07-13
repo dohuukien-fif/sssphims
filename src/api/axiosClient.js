@@ -20,6 +20,7 @@ axiosClient.interceptors.response.use(
   },
   (error) => {
     // Handle errors
+    console.log("errorAxios", error);
     throw error;
   }
 );

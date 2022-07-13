@@ -3,7 +3,13 @@ import PropTypes from "prop-types";
 import "./styles.scss";
 import axios from "axios";
 import LoadingFileImage from "../../../../component/Loading/loadingFileImage";
-const ModalManager = ({ isOpens, data, onSubmits, handleClosenew }) => {
+const ModalManager = ({
+  isOpens,
+  data,
+  onSubmits,
+  handleClosenew,
+  updateModalRef,
+}) => {
   const [values, setValue] = useState({});
   const [fileImage, setFileImages] = React.useState("");
   const [file, setFile] = React.useState();
@@ -42,19 +48,27 @@ const ModalManager = ({ isOpens, data, onSubmits, handleClosenew }) => {
     } catch (error) {}
   };
   console.log(id);
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     console.log({ values, id });
     if (onSubmits) {
-      onSubmits({ ...values, id: data.id });
+      const newValue = {
+        id: data.id,
+        image: fileImage !== "" ? fileImage : data.image,
+        ...values,
+      };
+
+      await onSubmits({ ...newValue });
     }
 
     setValue({});
+    setFileImages("");
   };
 
   console.log("values", values);
   return (
     <div
       className={isOpens ? "modalManager active--modalManager" : "modalManager"}
+      ref={updateModalRef}
     >
       <div className="modalManager__swap">
         {/* TÊN - GIỚI TÍNH */}
@@ -72,18 +86,18 @@ const ModalManager = ({ isOpens, data, onSubmits, handleClosenew }) => {
             <div className="modalManager__group--second">
               <label>Giới tính :*</label>
               <div className="modalManager__group--grende">
-                <span>Name</span>
+                <span>Nam</span>
                 <input
                   type="radio"
-                  value="name"
-                  name="grende"
+                  value="nam"
+                  name="gender"
                   onChange={handChangeInput}
                 />
                 <span>Nữ</span>
                 <input
                   type="radio"
                   value="nữ"
-                  name="grende"
+                  name="gender"
                   onChange={handChangeInput}
                 />
               </div>

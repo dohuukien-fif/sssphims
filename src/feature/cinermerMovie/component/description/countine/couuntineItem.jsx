@@ -14,6 +14,14 @@ function CountineItem({ items }) {
   const handleClick = () => {
     navigate(`/phim-chieu-rap/phim/${items.id}`);
   };
+  const handleNavigeteCategory = (value) => {
+    navigate(
+      `/category/${value
+        ?.replaceAll(" ", "-")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")}`
+    );
+  };
   const dataIcon = [
     <AiOutlineStar />,
     <AiOutlineStar />,
@@ -54,7 +62,10 @@ function CountineItem({ items }) {
         <div className="countine_name" onClick={handleClick}>
           <p>{name}</p>
         </div>
-        <div className="countine_premiere">
+        <div
+          className="countine_premiere"
+          onClick={() => handleNavigeteCategory(premiere)}
+        >
           <FcFlashOn style={{ fontSize: "17px" }} />
           <p>{premiere}</p>
         </div>

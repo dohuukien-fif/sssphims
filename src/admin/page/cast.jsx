@@ -7,6 +7,7 @@ import ModalCast from "../component/cast/modal";
 import CastList from "../component/cast/managerList";
 import ModalUpdate from "../component/cast/modalUpdate";
 import FilterNation from "../component/cast/filter";
+import CastApi from "../../api/cast";
 const datas = [
   {
     nation: "Mỹ",
@@ -127,13 +128,24 @@ const datas = [
   },
 ];
 const CastFeatures = (props) => {
-  const [data, setdata] = React.useState(datas);
+  const [data, setData] = React.useState([]);
   const [isOpen, setIsopen] = React.useState(false);
   const [isOpenUpdate, setIsopenUpdate] = React.useState(false);
   const [inforData, setinforData] = React.useState({});
 
   const newModalRef = useRef(null);
   const updateModalRef = useRef(null);
+
+  const [filter, setfilter] = React.useState({});
+
+  useEffect(() => {
+    const fetchApi = async () => {
+      const reponse = await CastApi.getAll(filter);
+
+      setData(reponse);
+    };
+    fetchApi();
+  }, [filter]);
 
   const handleIsopen = () => {
     setIsopen(true);
@@ -149,16 +161,20 @@ const CastFeatures = (props) => {
   };
   const handleSubmitValue = async (value) => {
     console.log("[valuenewđákdakdkhá]", value);
+
+    await CastApi.add(value);
+
+    window.location.reload();
   };
 
   const handleSubmitValueUpdate = async (value) => {
-    console.log("value", value);
+    console.log("valueUpdate", value);
+    await CastApi.update(value);
+    window.location.reload();
   };
-  const handleGetIdData = (id) => {
-    console.log("id", id);
-
-    setinforData(data.find((e) => e.id === id));
-
+  const handleGetIdData = async (id) => {
+    const reponse = await CastApi.get(id);
+    setinforData(reponse);
     setIsopenUpdate(true);
   };
 
@@ -184,8 +200,11 @@ const CastFeatures = (props) => {
   }, []);
 
   const handleChangeValueNation = (value) => {
-    setdata(datas.filter((e) => e.nation === value));
     console.log(value);
+    setfilter((prev) => ({
+      ...prev,
+      ...value,
+    }));
   };
 
   console.log(data);

@@ -16,6 +16,15 @@ function ContineItem({ items }) {
   const handleClick = () => {
     navigate(`/phim-le/phim/${items.id}`);
   };
+
+  const handleNavigeteCategory = (value) => {
+    navigate(
+      `/category/${value
+        ?.replaceAll(" ", "-")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")}`
+    );
+  };
   const dataIcon = [
     <AiOutlineStar />,
     <AiOutlineStar />,
@@ -57,7 +66,10 @@ function ContineItem({ items }) {
         <div className="video_name" onClick={handleClick}>
           <p>{name}</p>
         </div>
-        <div className="video_premiere">
+        <div
+          className="video_premiere"
+          onClick={() => handleNavigeteCategory(premiere)}
+        >
           <FcFlashOn style={{ fontSize: "17px" }} />
           <p>{premiere}</p>
         </div>

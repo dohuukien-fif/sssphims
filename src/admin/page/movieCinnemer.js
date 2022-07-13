@@ -10,6 +10,8 @@ import MovieUpdate from "../component/movie/update/movie";
 import NewMovieFeatures from "./newMovie/index";
 import MovieCinemerList from "../component/movie/movieList/movieCinemerList";
 import cinimerApi from "../../api/movieCinermer";
+import FilterMovie from "../component/filterMovie";
+import FilterCategoryMovie from "../component/filterMovie/indexCategoryMovie";
 
 const MovieFeatures = (props) => {
   const [movie, setMovie] = useState([]);
@@ -23,6 +25,10 @@ const MovieFeatures = (props) => {
   const closeRef = useRef(null);
   const updateRef = useRef(null);
   const newMovieRef = useRef(null);
+  const [filter, setFilter] = useState({
+    page: 1,
+    limit: 10,
+  });
   const handleIsOpenInput = () => {
     setisOpenInput(true);
   };
@@ -40,14 +46,20 @@ const MovieFeatures = (props) => {
   };
   useEffect(() => {
     const fetchApi = async () => {
-      const data = await cinimerApi.getAll();
+      const data = await cinimerApi.getAll(filter);
       console.log(data);
       setMovie(data);
       setLoading(false);
     };
     fetchApi();
-  }, []);
+  }, [filter]);
 
+  const handleChangeFilter = (value) => {
+    setFilter((prev) => ({
+      ...prev,
+      ...value,
+    }));
+  };
   const handleGetIdMovie = async (id) => {
     setLoadingModal(true);
 
@@ -79,7 +91,8 @@ const MovieFeatures = (props) => {
   useEffect(() => {
     const hanndleWindowClose = (e) => {
       if (e.target === updateRef.current) {
-        setisUpdate(false);   setLoadingModal(false);
+        setisUpdate(false);
+        setLoadingModal(false);
         setDataItem({});
       }
     };
@@ -111,14 +124,23 @@ const MovieFeatures = (props) => {
     }
     console.log("value", value);
   };
+  const handleSubmitValueMovieNew = async (value) => {
+    console.log("[nnewValueajfanfkanf]", value);
+    await cinimerApi.add(value);
+    setIsNewMovie(false);
+  };
+  const ApiFilter = cinimerApi;
   return (
-    <div className="movie">
+    <div className="movie__admin">
       <div className="movie__swapper">
         <div className="movie__new">
           <button onClick={handleIsOpenNewMovie}>Thêm mới</button>
           <button>Quản lý chất lượng</button>
         </div>
-
+        <FilterCategoryMovie
+          onSubmit={handleChangeFilter}
+          ApiFilter={ApiFilter}
+        />
         {Loading ? (
           <LoadingFeatures />
         ) : (
@@ -154,7 +176,11 @@ const MovieFeatures = (props) => {
         handleIsCloseUpdate={handleIsCloseUpdate}
       />
       {/*  new  Movie */}
-      <NewMovieFeatures newMovieRef={newMovieRef} isNewMovie={isNewMovie} />
+      <NewMovieFeatures
+        onSubmits={handleSubmitValueMovieNew}
+        newMovieRef={newMovieRef}
+        isNewMovie={isNewMovie}
+      />
     </div>
   );
 };

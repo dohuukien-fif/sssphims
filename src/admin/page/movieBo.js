@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import SeriesApi from "../../api/movieSeries";
+import FilterMovie from "../component/filterMovie";
+import FilterCategoryMovie from "../component/filterMovie/indexCategoryMovie";
 import MovieModal from "../component/movie/modal/movie";
 import MovieBoList from "../component/movie/movieList/movieBoList";
 import MovieUpdate from "../component/movie/update/movie";
@@ -19,6 +21,11 @@ const MovieFeatures = (props) => {
   const closeRef = useRef(null);
   const updateRef = useRef(null);
   const newMovieRef = useRef(null);
+
+  const [filter, setFilter] = useState({
+    page: 1,
+    limit: 10,
+  });
   const handleIsOpenInput = () => {
     setisOpenInput(true);
   };
@@ -36,14 +43,19 @@ const MovieFeatures = (props) => {
   };
   useEffect(() => {
     const fetchApi = async () => {
-      const data = await SeriesApi.getAll();
+      const data = await SeriesApi.getAll(filter);
       console.log(data);
       setMovie(data);
       setLoading(false);
     };
     fetchApi();
-  }, []);
-
+  }, [filter]);
+  const handleChangeFilter = (value) => {
+    setFilter((prev) => ({
+      ...prev,
+      ...value,
+    }));
+  };
   const handleGetIdMovie = async (id) => {
     setLoadingModal(true);
 
@@ -108,14 +120,23 @@ const MovieFeatures = (props) => {
     }
     console.log("value", value);
   };
+  const handleSubmitValueMovieNew = async (value) => {
+    console.log("[nnewValueajfanfkanf]", value);
+    await SeriesApi.add(value);
+    setIsNewMovie(false);
+  };
+  const ApiFilter = SeriesApi;
   return (
-    <div className="movie">
+    <div className="movie__admin">
       <div className="movie__swapper">
         <div className="movie__new">
           <button onClick={handleIsOpenNewMovie}>Thêm mới</button>
           <button>Quản lý chất lượng</button>
         </div>
-
+        <FilterCategoryMovie
+          onSubmit={handleChangeFilter}
+          ApiFilter={ApiFilter}
+        />
         {Loading ? (
           <LoadingFeatures />
         ) : (
@@ -151,7 +172,11 @@ const MovieFeatures = (props) => {
         handleIsCloseUpdate={handleIsCloseUpdate}
       />
       {/*  new  Movie */}
-      <NewMovieFeatures newMovieRef={newMovieRef} isNewMovie={isNewMovie} />
+      <NewMovieFeatures
+        onSubmits={handleSubmitValueMovieNew}
+        newMovieRef={newMovieRef}
+        isNewMovie={isNewMovie}
+      />
     </div>
   );
 };

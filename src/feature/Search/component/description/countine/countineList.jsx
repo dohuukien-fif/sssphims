@@ -14,7 +14,7 @@ function CountineList({ categoty }) {
       try {
         const res = await ProductApi.getAll();
         console.log(res);
-        setMovieCountine(res.filter((e) => e.category !== categoty));
+        setMovieCountine(res.filter((e) => e.nation === categoty));
       } catch (error) {}
     };
     fetchApiMovie();

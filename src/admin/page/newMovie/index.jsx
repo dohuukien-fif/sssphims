@@ -10,14 +10,14 @@ const NewMovieFeatures = ({
 }) => {
   const [values, setValue] = React.useState({
     name: "",
-    vietsub: "",
+    sort: "",
     searchTerm: "",
     director: "",
     practice: "",
     time: "",
     desTrailer: "",
     year: "",
-    hd: "",
+
     description: "",
   });
   const [valueMovie, setValueMovie] = React.useState({
@@ -38,7 +38,7 @@ const NewMovieFeatures = ({
   const inforMovie = [
     {
       title: "Mặc đinh ",
-      content: ["Phim lẻ", "Phim anime", "Phim cinemer", "Phim bộ"],
+      content: ["phim lẻ", "phim anime", "phim cinemer", "phim bộ"],
       name: "categoryName",
     },
     {
@@ -132,10 +132,11 @@ const NewMovieFeatures = ({
     }));
   };
   const date = new Date();
-  const dayBroveMovie = `${date.getDate()}/${
+  const dayBroveMovie = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} - ${date.getDate()}/${
     date.getMonth() + 1
   }/${date.getFullYear()}`;
 
+  console.log(date.getHours(), date.getMinutes(), date.getSeconds());
   console.log(
     dayBroveMovie,
     date.getDate(),
@@ -166,7 +167,8 @@ const NewMovieFeatures = ({
       setLoadingfileImage(false);
     } catch (error) {}
   };
-
+  const id = Date.now().toString();
+  console.log(id);
   const handleSubmit = async () => {
     if (movie.length === 0) {
       return console.log("vui lòng nhập tập  phim");
@@ -185,13 +187,16 @@ const NewMovieFeatures = ({
     }
     if (onSubmits) {
       const newValue = {
+        id,
         ...values,
-        image: fileImage,
+        thumbnailUrl: fileImage,
         movie,
         date: dayBroveMovie,
+        evaluate: 0,
         ...infor,
       };
 
+      console.log("[[newValue]]]]", newValue);
       await onSubmits(newValue);
     }
 
@@ -206,18 +211,11 @@ const NewMovieFeatures = ({
       time: "",
       desTrailer: "",
       year: "",
-      hd: "",
+      
       description: "",
     });
     setFileImages("");
   };
-  console.log(Array.isArray(Object.values(infor)));
-
-  console.log("[values]", values);
-  console.log("[infor]", infor);
-
-  console.log("[valuemovie]", valueMovie);
-  console.log("[movie]", movie);
 
   const getDataCast = dataCast.filter((e) =>
     infor.nation !== "" ? e.nation === infor.nation : ""
@@ -258,14 +256,13 @@ const NewMovieFeatures = ({
             </div>
 
             <div className="newMovie__group--second">
-              <label>Tên Vietsub </label>
-              <input
-                type="text"
-                placeholder="Nhập tên vietsub..."
-                name="vietsub"
-                value={values.vietsub}
-                onChange={handleChangeInput}
-              ></input>
+              <label>loại </label>
+              <select name="sort" onChange={handleChangeInput}>
+                <option value="">chọn loại</option>
+                <option value="mới">Mới</option>
+                <option value="mới nhất">Mới nhất</option>
+                <option value="cũ">Cũ</option>
+              </select>
             </div>
           </div>
           {/*   SEARCH */}
@@ -417,17 +414,6 @@ const NewMovieFeatures = ({
               ></input>
             </div>
 
-            <div className="newMovie__group--second">
-              <label>Chất lượng phim</label>
-              <input
-                type="text"
-                placeholder="Nhập chất lượng phim.."
-                name="hd"
-                value={values.hd}
-                onChange={handleChangeInput}
-              ></input>
-            </div>
-
             {/* <div className="newMovie__group--second">
               <label>Số tập </label>
               <input
@@ -488,6 +474,7 @@ const NewMovieFeatures = ({
                 name="description"
                 value={values.description}
                 onChange={handleChangeInput}
+                placeholder="vui lòng nhập nội dung mô tả"
               ></textarea>
             </div>
           </div>

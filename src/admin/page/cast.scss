@@ -38,40 +38,46 @@
       display: flex;
       flex-wrap: wrap;
 
-      column-gap: 20px;
+      column-gap: 10px;
     }
     .cast__item {
-      flex-basis: calc(50% - 10px);
+      flex-basis: calc(50% - 5px);
 
       margin-top: 15px;
 
       cursor: pointer;
 
       @include mobile {
-        flex-basis: calc(33.333% - 20px);
+        flex-basis: calc(33.333% - 8px);
       }
       @include tablet {
-        flex-basis: calc(25% - 20px);
+        flex-basis: calc(25% - 8px);
       }
       &:hover {
         opacity: 0.7;
       }
       .cast__figust {
-        min-height: 350px;
-
         position: relative;
         & > img {
           display: inline-flex;
 
           width: 100%;
 
-          min-height: 350px;
-          height: 350px;
+          min-height: 200px;
+          height: 200px;
 
           object-fit: cover;
           flex-shrink: 0;
 
           border-radius: 10px;
+          @include mobile {
+            min-height: 250px;
+            height: 250px;
+          }
+          @include tablet {
+            min-height: 350px;
+            height: 350px;
+          }
         }
         & > svg {
           position: absolute;

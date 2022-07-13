@@ -51,9 +51,13 @@
         border: 1px solid gray;
 
         opacity: 0.8;
+
         &:hover {
           opacity: 1;
         }
+      }
+      & > button:last-child {
+        background: red;
       }
     }
   }

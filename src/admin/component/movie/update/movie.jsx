@@ -178,13 +178,13 @@ const MovieUpdate = ({
             </div>
 
             <div className="update__group--second">
-              <label>Tên Vietsub </label>
-              <input
-                type="text"
-                placeholder="Nhập tên vietsub..."
-                name="vietsub"
-                onChange={handleChangeInput}
-              ></input>
+              <label>loại </label>
+              <select name="sort" onChange={handleChangeInput}>
+                <option value="">chọn loại</option>
+                <option value="mới">Mới</option>
+                <option value="mới nhất">Mới nhất</option>
+                <option value="cũ">Cũ</option>
+              </select>
             </div>
           </div>
           {/*   SEARCH */}
@@ -199,6 +199,19 @@ const MovieUpdate = ({
               ></input>
             </div>
           </div>
+          {/*   director */}
+          <div className="update__group">
+            <div className="update__group--second">
+              <label>Tên giám đốc </label>
+              <input
+                type="text"
+                placeholder={dataItem.director}
+                name="director"
+                onChange={handleChangeInput}
+              ></input>
+            </div>
+          </div>
+
           {/* MOVIE -  MENU - NATION - CAST - DIRETOR */}
           <div className="update__group update--infor">
             {inforMovie.map((item, index) => (
@@ -320,6 +333,7 @@ const MovieUpdate = ({
                 id=""
                 name="description"
                 onChange={handleChangeInput}
+                placeholder="vui lòng nhập nội dung mô tả..."
               ></textarea>
             </div>
           </div>

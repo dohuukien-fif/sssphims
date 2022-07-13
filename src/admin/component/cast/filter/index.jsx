@@ -7,7 +7,7 @@ const FilterNation = ({ onSubmits }) => {
       nation: "Mỹ",
     },
     {
-      nation: "Trung quốc",
+      nation: "Trung Quôc",
     },
     {
       nation: "Hàn  quốc",
@@ -18,9 +18,9 @@ const FilterNation = ({ onSubmits }) => {
   ];
 
   const handleChangeValue = (e) => {
-    const { value } = e.target;
+    const { value, name } = e.target;
 
-    if (onSubmits) onSubmits(value);
+    if (onSubmits) onSubmits({ [name]: value });
   };
   return (
     <div className="filter__nation">
@@ -28,7 +28,7 @@ const FilterNation = ({ onSubmits }) => {
         <span>Quốc gia</span>
       </div>
       <div className="filter__nation--form">
-        <select name="" id="" onChange={handleChangeValue}>
+        <select name="nation" id="" onChange={handleChangeValue}>
           {data.map((item, idx) => (
             <option value={item.nation}>{item.nation}</option>
           ))}

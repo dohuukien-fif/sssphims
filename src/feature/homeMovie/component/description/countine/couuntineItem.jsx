@@ -22,6 +22,14 @@ function CountineItem({ items }) {
     <AiOutlineStar />,
   ];
 
+  const handleNavigeteCategory = (value) => {
+    navigate(
+      `/category/${value
+        ?.replaceAll(" ", "-")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")}`
+    );
+  };
   const [inxEvalue, setIdxEvanlue] = useState(0);
 
   const handleClickEvanlue = async (id, evaluate) => {
@@ -54,7 +62,10 @@ function CountineItem({ items }) {
         <div className="countine_name" onClick={handleClick}>
           <p>{name}</p>
         </div>
-        <div className="countine_premiere">
+        <div
+          className="countine_premiere"
+          onClick={() => handleNavigeteCategory(premiere)}
+        >
           <FcFlashOn style={{ fontSize: "17px" }} />
           <p>{premiere}</p>
         </div>

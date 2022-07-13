@@ -33,7 +33,14 @@ function ContineItem({ items }) {
 
     await ProductApi.update(newValue);
   };
-
+  const handleNavigeteCategory = (value) => {
+    navigate(
+      `/category/${value
+        ?.replaceAll(" ", "-")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")}`
+    );
+  };
   return (
     <>
       <div className="video_adside" onClick={handleClick}>
@@ -57,7 +64,10 @@ function ContineItem({ items }) {
         <div className="video_name" onClick={handleClick}>
           <p>{name}</p>
         </div>
-        <div className="video_premiere">
+        <div
+          className="video_premiere"
+          onClick={() => handleNavigeteCategory(premiere)}
+        >
           <FcFlashOn style={{ fontSize: "17px" }} />
           <p>{premiere}</p>
         </div>

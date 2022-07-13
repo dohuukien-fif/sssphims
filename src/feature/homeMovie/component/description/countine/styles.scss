@@ -16,6 +16,8 @@
     flex-direction: column;
     margin-bottom: 1rem;
 
+    cursor: pointer;
+
     @include mobile {
       // width: 24%;
       flex-basis: calc(25% - 10px);

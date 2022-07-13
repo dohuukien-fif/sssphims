@@ -3,7 +3,13 @@ import PropTypes from "prop-types";
 import "./styles.scss";
 import axios from "axios";
 import LoadingFileImage from "../../../../component/Loading/loadingFileImage";
-const NewModalManager = ({ isOpens, data, onSubmits, handleClosenew }) => {
+const NewModalManager = ({
+  newModalRef,
+  isOpens,
+  data,
+  onSubmits,
+  handleClosenew,
+}) => {
   const [error, setError] = useState("");
   const [fileImage, setFileImages] = React.useState("");
   const [file, setFile] = React.useState();
@@ -92,6 +98,7 @@ const NewModalManager = ({ isOpens, data, onSubmits, handleClosenew }) => {
       className={
         isOpens ? "newModalManager active--newModalManager" : "newModalManager"
       }
+      ref={newModalRef}
     >
       {error !== "" && <div className="error">{error}</div>}
       <div className="newModalManager__swap">

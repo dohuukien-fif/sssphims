@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./styles.scss";
+import { RiDeleteBin5Line } from "react-icons/ri";
 const ManagerItem = ({ item, handleIdModals, handleIdDelete }) => {
   const handleClickId = (id) => {
     if (handleIdModals) {
@@ -42,7 +43,7 @@ const ManagerItem = ({ item, handleIdModals, handleIdDelete }) => {
         </div>
         <div className="manager__action">
           <button onClick={() => handleClickId(item.id)}>Edit</button>
-          <button onClick={() => handleClickDeleteId(item.id)}>Delete</button>
+          <RiDeleteBin5Line onClick={() => handleClickDeleteId(item.id)} />
         </div>
       </div>
     </div>

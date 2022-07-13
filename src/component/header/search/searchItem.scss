@@ -1,0 +1,57 @@
+.search__item {
+  display: flex;
+  align-items: center;
+
+  column-gap: 10px;
+
+  padding: 5px;
+
+  font-size: 13px;
+
+  line-height: 2.3rem;
+
+  margin: 5px 0;
+
+  cursor: pointer;
+  .search__figust {
+    max-width: 100px;
+
+    & > img {
+      object-fit: cover;
+      display: inline-block;
+
+      width: 50px;
+      height: 50px;
+    }
+  }
+  .search__content {
+    flex: 1;
+    .search__name {
+      & > span {
+        font-size: 16px;
+        font-weight: 700;
+
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+          "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+          "Helvetica Neue", sans-serif !important;
+        -webkit-font-smoothing: antialiased;
+      }
+    }
+    .search__practice {
+      font-weight: 700;
+      font-size: 15px;
+
+      color: blue;
+
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif !important;
+      -webkit-font-smoothing: antialiased;
+    }
+    .search__category {
+      font-style: italic;
+      font-weight: 600;
+      color: rgb(69, 67, 67);
+    }
+  }
+}

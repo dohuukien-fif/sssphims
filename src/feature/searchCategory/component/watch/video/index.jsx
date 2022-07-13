@@ -26,7 +26,7 @@ function Video({ product, pratice }) {
 
   // })
 
-  const { movie } = product;
+  const { movie, nation } = product;
   const location = useLocation();
   console.log(location);
   //   const { movie } = product;
@@ -63,7 +63,7 @@ function Video({ product, pratice }) {
     const fetApiRandom = async () => {
       try {
         const res = await ProductApi.getAll();
-        setMovieRandom(res);
+        setMovieRandom(res.filter((e) => e.nation === nation));
         console.log(res);
       } catch (error) {
         console.log(error);
@@ -108,7 +108,7 @@ function Video({ product, pratice }) {
         <div className="video_block">
           <div className="video_play">
             <iframe
-              src={videos[Index].video}
+              src={movie[Index].video}
               frameBorder="0"
               width="100%"
               height="100%"
@@ -127,7 +127,7 @@ function Video({ product, pratice }) {
             <div className="video_choosing">
               <p>CHỌN TẬP PHIM</p>
             </div>
-            <Choosing videos={videos} onChanges={handleChanPratice} />
+            <Choosing videos={movie} onChanges={handleChanPratice} />
           </div>
           <div className="video_waning">
             <p>

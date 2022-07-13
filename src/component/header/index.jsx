@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import "./styles.scss";
+import React, { useEffect, useState } from "react";
 import {
   AiOutlineAlignCenter,
   AiOutlineClose,
   AiOutlineSearch,
 } from "react-icons/ai";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import queryString from "query-string";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import ProductApi from "../../api/movieHome";
+import SearchList from "./search/searchList";
+import "./styles.scss";
 Header.propTypes = {};
 
 function Header(props) {
@@ -17,8 +17,38 @@ function Header(props) {
 
   const [openSearch, setopenSearch] = useState(false);
   const [SearchTerm, setSearchTerm] = useState("");
+  const [dataSearch, setdataSearch] = useState([]);
+  const [Loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+
+  useEffect(() => {
+    setLoading(true);
+    const fetchApi = async () => {
+      const reponse = await ProductApi.getAll();
+      setdataSearch(
+        reponse.filter((e) =>
+          e?.name
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/đ/g, "d")
+            .replace(/Đ/g, "D")
+            .replace(/ /g, "")
+            ?.toLowerCase()
+            .includes(
+              SearchTerm.replaceAll("+", "")
+                .replace(/ /g, "")
+
+                ?.toLowerCase()
+            )
+        )
+      );
+      setLoading(false);
+    };
+    fetchApi();
+  }, [SearchTerm]);
+
+  console.log(dataSearch);
   useEffect(() => {
     function scrollNavabar() {
       if (window.scrollY > 0) {
@@ -63,6 +93,8 @@ function Header(props) {
   }, [screen]);
   useEffect(() => {
     setistab(false);
+    setSearchTerm("");
+    setopenSearch(false);
   }, [location.pathname]);
   const handleOpenSearch = () => {
     setopenSearch((x) => !x);
@@ -86,18 +118,23 @@ function Header(props) {
             openSearch ? "search__swapper activeSearch" : "search__swapper"
           }
         >
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name=""
-              placeholder="tìm kiếm phim...?"
-              onChange={(e) => setSearchTerm(e.target.value)}
-              value={SearchTerm}
-              id=""
-            />
+          <div className="search__block">
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name=""
+                placeholder="tìm kiếm phim...?"
+                onChange={(e) => setSearchTerm(e.target.value)}
+                value={SearchTerm}
+                id=""
+              />
 
-            <button type="submit">search</button>
-          </form>
+              <button type="submit">search</button>
+            </form>
+            {SearchTerm !== "" && dataSearch.length > 0 && (
+              <SearchList dataSearch={dataSearch} loading={Loading} />
+            )}
+          </div>
         </div>
         <ul className={istab ? "nav_menu actives" : " nav_menu"}>
           <li>
@@ -118,6 +155,10 @@ function Header(props) {
           <li>
             {" "}
             <Link to="/phim-chieu-rap">phim chiếu rạp</Link>
+          </li>
+          <li className="admin__hidden">
+            {" "}
+            <Link to="/admin">admin</Link>
           </li>
         </ul>
       </div>

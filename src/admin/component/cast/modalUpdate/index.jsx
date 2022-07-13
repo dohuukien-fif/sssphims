@@ -9,11 +9,13 @@ const ModalUpdate = memo(
     const [modalConfirm, setmodalConfirm] = useState(false);
 
     const [values, setValue] = useState({
-      Name: data.Name || "",
-      description: data.description || "",
+      name: "",
+      description: "",
+      nation: "",
     });
     const [fileImage, setFileImages] = React.useState("");
     const [file, setFile] = React.useState();
+    const [dataValue, setdataValue] = React.useState({});
     const [LoadingfileImage, setLoadingfileImage] = React.useState(false);
     const uid = Date.now();
     const handChangeInput = (e) => {
@@ -28,8 +30,19 @@ const ModalUpdate = memo(
 
     console.log(id);
 
-    const handleClickModalConfirm = () => {
-      setmodalConfirm(true);
+    const handleClickModalConfirm = async () => {
+      if (onSubmits) {
+        await onSubmits(dataValue);
+      }
+
+      setFileImages("");
+
+      setValue({
+        name: "",
+        description: "",
+      });
+      setmodalConfirm(false);
+      setmodalConfirm(false);
     };
     const handleClickCloseModalConfirm = () => {
       setmodalConfirm(false);
@@ -80,24 +93,16 @@ const ModalUpdate = memo(
     };
 
     const handleSubmitForm = () => {
-      if (onSubmits) {
-        const newValue = {
-          id: data.id,
-          Name: values.Name !== "" ? values.Name : data.Name,
-          description:
-            values.description !== "" ? values.description : data.description,
-          image: fileImage !== "" ? fileImage : data.image,
-        };
-        onSubmits(newValue);
-      }
-
-      setFileImages("");
-
-      setValue({
-        Name: "",
-        description: "",
-      });
-      setmodalConfirm(false);
+      const newValue = {
+        id: data.id,
+        nation: values.nation !== "" ? values.nation : data.nation,
+        name: values.name !== "" ? values.name : data.name,
+        description:
+          values.description !== "" ? values.description : data.description,
+        image: fileImage !== "" ? fileImage : data.image,
+      };
+      setdataValue(newValue);
+      setmodalConfirm(true);
     };
     return (
       <div
@@ -111,11 +116,20 @@ const ModalUpdate = memo(
 
           <div className="cast__modal--form">
             <div className="cast__modal--group">
+              <label htmlFor="">Quốc gia :*</label>
+              <select name="nation" id="" onChange={handleChangeInput}>
+                <option value="">Chọn quốc gia</option>
+                <option value="Mỹ">Mỹ</option>
+                <option value="Trung quốc">Trung quốc</option>
+                <option value="Việt nam">Việt nam</option>
+              </select>
+            </div>
+            <div className="cast__modal--group">
               <label htmlFor="">Name :*</label>
               <input
                 type="text"
-                name="Name"
-                value={values.Name}
+                name="name"
+                value={values.name}
                 placeholder={data.name}
                 onChange={handleChangeInput}
               />
@@ -145,7 +159,7 @@ const ModalUpdate = memo(
             </div>
 
             <div className="cast__submit">
-              <button onClick={handleClickModalConfirm}>xác nhận</button>
+              <button onClick={handleSubmitForm}>xác nhận</button>
               <button onClick={handleIsClose}>Đóng</button>
             </div>
           </div>
@@ -161,7 +175,7 @@ const ModalUpdate = memo(
             </div>
 
             <div className="cast__confirm--btn">
-              <button onClick={handleSubmitForm}>Đồng ý</button>
+              <button onClick={handleClickModalConfirm}>Đồng ý</button>
               <button onClick={handleClickCloseModalConfirm}>Đóng</button>
             </div>
           </div>

@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import ManagerList from "../component/manager/managerList";
 import "./manager.scss";
 import ModalManager from "../component/manager/modal";
 import NewModalManager from "../component/manager/newManager";
+import ManagerApi from "../../api/manager";
 const Director = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [update, setUpdate] = useState({});
@@ -11,7 +12,16 @@ const Director = (props) => {
     JSON.parse(localStorage.getItem("MANAGER")) || []
   );
   const [isOpenNew, setIsOpenNew] = useState(false);
+  const newModalRef = useRef(null);
+  const updateModalRef = useRef(null);
+  useEffect(() => {
+    const fetchApi = async () => {
+      const reponse = await ManagerApi.getAll();
 
+      setData(reponse);
+    };
+    fetchApi();
+  }, []);
   const data = [
     {
       id: 1,
@@ -55,37 +65,55 @@ const Director = (props) => {
   const handleClosenew = () => {
     setIsOpenNew(false);
   };
-  const handleIdModal = (id) => {
-    console.log(id);
-    setUpdate(datas.find((e) => e.id === id));
+  const handleIdModal = async (id) => {
+    await ManagerApi.get(id);
     setIsOpen(true);
   };
 
-  const handleOnSunmitValue = (value) => {
-    console.log("huukiende[tai", value);
-    const index = datas.findIndex((e) => e.id === value.id);
-
+  const handleOnSunmitValue = async (value) => {
+    console.log("huukiendeupdat", value);
+    await ManagerApi.update(value);
     setIsOpen(false);
+    window.location.reload();
   };
-  const handleOnSunmitValueNew = (value) => {
+  const handleOnSunmitValueNew = async (value) => {
     console.log("handleOnSunmitValue", value);
 
-    setData((prev) => [...prev, value]);
-
-    const newValue = [...datas, value];
+    await ManagerApi.add(value);
 
     setIsOpenNew(false);
+    window.location.reload();
   };
 
   console.log("data", datas);
 
-  const handleDelete = (id) => {
-    const newData = datas.filter((e) => e.id !== id);
-
-    setData(newData);
+  const handleDelete = async (id) => {
+    await ManagerApi.detele(id);
 
     console.log("idDelete", id);
+    window.location.reload();
   };
+
+  useEffect(() => {
+    const hanndleWindowClose = (e) => {
+      if (e.target === updateModalRef.current) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener("click", hanndleWindowClose);
+
+    return () => window.removeEventListener("click", hanndleWindowClose);
+  }, []);
+  useEffect(() => {
+    const hanndleWindowClose = (e) => {
+      if (e.target === newModalRef.current) {
+        setIsOpenNew(false);
+      }
+    };
+    window.addEventListener("click", hanndleWindowClose);
+
+    return () => window.removeEventListener("click", hanndleWindowClose);
+  }, []);
 
   console.log("datannnnnnnnnnEW", datas);
   return (
@@ -126,9 +154,11 @@ const Director = (props) => {
       <ModalManager
         isOpens={isOpen}
         data={update}
+        updateModalRef={updateModalRef}
         onSubmits={handleOnSunmitValue}
       />
       <NewModalManager
+        newModalRef={newModalRef}
         isOpens={isOpenNew}
         onSubmits={handleOnSunmitValueNew}
         handleClosenew={handleClosenew}

@@ -10,11 +10,13 @@ const ModalCast = memo(
     const [modalConfirm, setmodalConfirm] = useState(false);
 
     const [values, setValue] = useState({
-      Name: "",
+      name: "",
       description: "",
+      nation: "",
     });
     const [fileImage, setFileImages] = React.useState("");
     const [file, setFile] = React.useState();
+    const [dataValue, setdataValue] = React.useState({});
     const [LoadingfileImage, setLoadingfileImage] = React.useState(false);
     const uid = Date.now();
     const handChangeInput = (e) => {
@@ -29,8 +31,22 @@ const ModalCast = memo(
 
     console.log(id);
 
-    const handleClickModalConfirm = () => {
-      setmodalConfirm(true);
+    const handleClickModalConfirm = async () => {
+      if (onSubmits) {
+        await onSubmits({
+          ...values,
+          id: uid,
+          nation: values.nation,
+          image: fileImage,
+        });
+      }
+      setmodalConfirm(false);
+      setValue({
+        nation: "",
+        name: "",
+        description: "",
+      });
+      setFileImages("");
     };
     const handleClickCloseModalConfirm = () => {
       setmodalConfirm(false);
@@ -81,15 +97,14 @@ const ModalCast = memo(
       } catch (error) {}
     };
     const handleSubmitForm = async () => {
-      if (onSubmits) {
-        await onSubmits({ ...values, id: uid, image: fileImage });
-      }
-      setmodalConfirm(false);
-      setValue({
-        Name: "",
-        description: "",
-      });
-      setFileImages("");
+      const newValue = {
+        ...values,
+        id: uid,
+        nation: values.nation,
+        image: fileImage,
+      };
+      setmodalConfirm(true);
+      setdataValue(newValue);
     };
 
     console.log(values);
@@ -105,15 +120,25 @@ const ModalCast = memo(
 
           <div className="cast__modal--form">
             <div className="cast__modal--group">
+              <label htmlFor="">Quốc gia :*</label>
+              <select name="nation" id="" onChange={handleChangeInput}>
+                <option value="">Chọn quốc gia</option>
+                <option value="Mỹ">Mỹ</option>
+                <option value="Trung quốc">Trung quốc</option>
+                <option value="Việt nam">Việt nam</option>
+              </select>
+            </div>
+            <div className="cast__modal--group">
               <label htmlFor="">Name :*</label>
               <input
                 type="text"
-                name="Name"
-                value={values.Name}
+                name="name"
+                value={values.name}
                 placeholder="vui lòng nhập tên diễn  viên"
                 onChange={handleChangeInput}
               />
             </div>
+
             <div className="cast__modal--group">
               <label htmlFor="">Ảnh mô tả :*</label>
               <input
@@ -145,7 +170,7 @@ const ModalCast = memo(
             </div>
 
             <div className="cast__submit">
-              <button onClick={handleClickModalConfirm}>xác nhận</button>
+              <button onClick={handleSubmitForm}>xác nhận</button>
               <button onClick={handleIsClose}>Đóng</button>
             </div>
           </div>
@@ -161,7 +186,7 @@ const ModalCast = memo(
             </div>
 
             <div className="cast__confirm--btn">
-              <button onClick={handleSubmitForm}>Đồng ý</button>
+              <button onClick={handleClickModalConfirm}>Đồng ý</button>
               <button onClick={handleClickCloseModalConfirm}>Đóng</button>
             </div>
           </div>
