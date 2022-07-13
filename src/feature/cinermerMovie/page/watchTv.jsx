@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { matchPath, useLocation, useParams } from "react-router-dom";
 import useDetailProduct from "./../component/hooks/useDescription";
@@ -15,6 +15,11 @@ function WatchTv(props) {
   const [Pratice, setPratice] = useState();
   console.log(watchId);
   const { product, Loading } = useDetailProduct(watchId);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   const handleChangePratice = (newValue) => {
     setPratice(newValue);
   };

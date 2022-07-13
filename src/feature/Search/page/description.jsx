@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { matchPath, useLocation, useParams } from "react-router-dom";
 import useDetailProduct from "./../component/hooks/useDescription";
@@ -14,7 +14,11 @@ Description.propTypes = {};
 function Description(props) {
   const { searchId } = useParams();
   console.log(searchId);
+  const { pathname } = useLocation();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   // const { pathname } = useLocation();
   // const match =matchPath( pathname, routes )?.path;
   // console.log(match);
