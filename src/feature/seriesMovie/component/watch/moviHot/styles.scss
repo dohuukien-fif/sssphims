@@ -1,68 +1,68 @@
-@use  "./../../../../../sass/index.scss" as *;
+@use "./../../../../../sass/index.scss" as *;
 
-.new_list{
-   max-height: 555px;
-   overflow: auto;
-   &::-webkit-scrollbar {
-      width: 8px;
-    }
-   &::-webkit-scrollbar-track {
-      -webkit-box-shadow: inset 0 0 6px#555555;
-      background-color:  #081b27;
-    }
-    &::-webkit-scrollbar-thumb {
-      background-color: rgb(110, 109, 109);
-      // border: 2px solid #555555;
-      outline: 1px solid slategrey;
-    }
-   .new_item{
+.new_list {
+  max-height: 555px;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px#555555;
+    background-color: #081b27;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(110, 109, 109);
+
+    outline: 1px solid slategrey;
+  }
+  .new_item {
+    display: flex;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    align-items: flex-start;
+    .new_aside {
+      flex: 1;
       display: flex;
-      margin-bottom: 2rem;
-      cursor: pointer;
+      /* margin: auto; */
+      justify-content: center;
       align-items: flex-start;
-      .new_aside{
-         flex: 1;
-         display: flex;
-         /* margin: auto; */
-         justify-content: center;
-         align-items: flex-start;
-     & > img{
+      & > img {
         width: 65px;
         height: 80px;
         border-radius: 5px;
-        &:hover{
-           opacity: 0.8;
+        &:hover {
+          opacity: 0.8;
         }
-     }
       }
-      .new_header{
-         flex: 3;
-         margin-left: 20px;
-         .new_name{
-            width: 100%;
-            @include tablets{
-               width: 90%;
-            }
-            @include tablet{
-               width: 80%;
-            }
-            & > p{
-               font-size: 15px;
-               color: white;
-               font-weight: 600;
-               @include mobile{
-                  white-space: pre-wrap; 
-                  overflow: hidden; // ẩn các nội dung khi kích thước lớn hơn chiều rộng khối bên ngoài
-                  text-overflow: ellipsis; //thêm 3 dấu chấm ở cuối
-                  -webkit-line-clamp: 3;// số dòng muốn hiển thị
-                  -webkit-box-orient: vertical;
-                   display: -webkit-box;
-               }
-               &:hover{
-                  text-decoration: underline;
-               }
-            }
-         }
+    }
+    .new_header {
+      flex: 3;
+      margin-left: 20px;
+      .new_name {
+        width: 100%;
+        @include tablets {
+          width: 90%;
+        }
+        @include tablet {
+          width: 80%;
+        }
+        & > p {
+          font-size: 15px;
+          color: white;
+          font-weight: 600;
+          @include mobile {
+            white-space: pre-wrap;
+            overflow: hidden; // ẩn các nội dung khi kích thước lớn hơn chiều rộng khối bên ngoài
+            text-overflow: ellipsis; //thêm 3 dấu chấm ở cuối
+            -webkit-line-clamp: 3; // số dòng muốn hiển thị
+            -webkit-box-orient: vertical;
+            display: -webkit-box;
+          }
+          &:hover {
+            text-decoration: underline;
+          }
+        }
       }
-   }
+    }
+  }
 }

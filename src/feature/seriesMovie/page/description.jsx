@@ -4,7 +4,6 @@ import { matchPath, useLocation, useParams } from "react-router-dom";
 import useDetailProduct from "./../component/hooks/useDescription";
 import ThumnaiMovie from "../component/description/thumnail";
 import MoviInfor from "../component/description/movieinfo";
-import "./description.scss";
 
 import DetaiList from "./../component/description/descriptions/detailLisst";
 import CountineList from "../component/description/countine/countineList";
@@ -20,9 +19,7 @@ function Description(props) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-  // const { pathname } = useLocation();
-  // const match =matchPath( pathname, routes )?.path;
-  // console.log(match);
+
   const { product, Loading } = useDetailProduct(seriesId);
   console.log(product);
   return (

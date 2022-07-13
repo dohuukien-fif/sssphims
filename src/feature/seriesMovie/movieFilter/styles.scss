@@ -1,22 +1,20 @@
-@use  "./../../../sass/index.scss" as *;
-.select{
-  
-padding-top: 5rem;
-margin-left: 10px;
-margin-bottom: 5rem;
-&_container{
-   display: flex;
-   flex-wrap: wrap;
-   @include mobile{
+@use "./../../../sass/index.scss" as *;
+.select {
+  padding-top: 5rem;
+  margin-left: 10px;
+  margin-bottom: 5rem;
+  &_container {
+    display: flex;
+    flex-wrap: wrap;
+    @include mobile {
       justify-content: center;
-   }
+    }
 
-   @include tablet{
-
+    @include tablet {
       margin: auto;
       justify-content: flex-start;
-   }
-   & > button{
+    }
+    & > button {
       padding: 1rem;
       /* height: 10px; */
       /* padding: 2rem; */
@@ -28,33 +26,33 @@ margin-bottom: 5rem;
       color: white;
       border: 1px solid black;
       cursor: pointer;
-   }
-   .select1,.select2,.select3,.select4{
+    }
+    .select1,
+    .select2,
+    .select3,
+    .select4 {
       width: 33%;
       margin-bottom: 1rem;
-      @include mobile{
-         width: 20%;
+      @include mobile {
+        width: 20%;
       }
-   @include tablets{
-      width: 20%;
-   }
-      #select_movie{
-         cursor: pointer;
-         width: 90%;
-         height: 100%;
-         background-color: #081b27;
-         color: white;
-         // padding: 1rem;
-         // width: 300px;
-         @include tablet{
-            height: 30px;
-         }
+      @include tablets {
+        width: 20%;
       }
-   }
-}
+      #select_movie {
+        cursor: pointer;
+        width: 90%;
+        height: 100%;
+        background-color: #081b27;
+        color: white;
 
-
+        @include tablet {
+          height: 30px;
+        }
+      }
+    }
+  }
 }
-select{
-   cursor: pointer;
+select {
+  cursor: pointer;
 }

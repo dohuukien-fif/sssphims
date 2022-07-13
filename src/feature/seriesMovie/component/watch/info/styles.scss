@@ -67,9 +67,7 @@
       color: white;
       font-weight: 600;
       position: relative;
-      //  &::after{
-      //     content: "";
-      //  }
+
       @include mobile {
         margin: 0;
         margin-right: auto;

@@ -4,9 +4,6 @@ import { BiTimeFive } from "react-icons/bi";
 import DOMPurify from "dompurify";
 import { useNavigate } from "react-router-dom";
 import "./styles.scss";
-// InforWatch.propTypes = {
-//   product: PropTypes.array,
-// };
 
 function InforWatch({ product, Pratice }) {
   const { name, premiere, practice, nation, cast, director, year, date, time } =

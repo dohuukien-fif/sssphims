@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineStar } from "react-icons/ai";
-import "./styles.scss";
+
 import { FcFlashOn } from "react-icons/fc";
 import SeriesApi from "../../../../../api/movieSeries";
 CountineItem.propTypes = {};

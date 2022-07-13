@@ -1,35 +1,16 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Choosing from "./choosingVideo";
-import "./styles.scss";
+
 import { useLocation } from "react-router-dom";
 import CountineList from "./../contine/contineList";
 import ProductApi from "./../../../../../api/movieHome";
-// Video.propTypes = {
-//   product: PropTypes.array,
-// };
 
 function Video({ product, pratice }) {
-  // const initFacebook = () => {
-  //   if (window.FB) {
-  //     window.FB.XFBML.parse();
-  //   }
-  // };
-
-  // FB.XFBML.parse();
-
-  // useEffect(() => {
-  //   initFacebook();
-  // }, []);
-
-  // (function(d,s,id){
-
-  // })
-
   const { movie, nation } = product;
   const location = useLocation();
   console.log(location);
-  //   const { movie } = product;
+
   const [Index, setIndex] = useState(0);
   const [MovieRandom, setMovieRandom] = useState([]);
   const videos = [
@@ -54,11 +35,7 @@ function Video({ product, pratice }) {
       video: "https://zembed.net/v/bMHetCqgJn.html",
     },
   ];
-  // const initFabook = () => {
-  //   if (window.FB) {
-  //     window.FB.XFBML.parse();
-  //   }
-  // };
+
   useEffect(() => {
     const fetApiRandom = async () => {
       try {
@@ -114,8 +91,7 @@ function Video({ product, pratice }) {
               height="100%"
               allowFullScreen
               style={{
-                // width: "100%",
-                // height: "100%",
+                //
                 position: "absolute",
                 left: "0px",
                 top: "0px",

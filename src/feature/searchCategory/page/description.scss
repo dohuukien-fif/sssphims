@@ -6,9 +6,6 @@
     position: relative;
 
     .headers_figure {
-      // @include mobile{
-      //    min-height: 1000px;
-      //   }
       background-color: rgba(7, 24, 34, 0.8);
       background-image: -webkit-gradient(
         linear,
@@ -27,16 +24,9 @@
         height: 80vh;
         min-height: 850px;
       }
-      //   @include tablets{
-      //    min-height: 1000px;
-      //  }
-      //   @include tablet{
-      //    min-height: 1000px;
-      //  }
+
       & > img {
         top: 0;
-
-        // height: 200px;
 
         min-height: 1050px;
 
@@ -49,19 +39,6 @@
           height: 90vh;
           min-height: 850px;
         }
-        // transform: scale(1.2);
-        //    @include mobile{
-        // height: 100%;
-        //     }
-        //  @include tablets{
-        //  height: 900px;
-        //        }
-        //        @include tablet{
-        //      height: 600px;
-        //              }
-        // @include tablets{
-        // min-height: 800px;
-        // }
       }
     }
     .headers_content {
@@ -74,7 +51,7 @@
       //  left: 25%;
       //  right: 15%;
       padding: 0 5rem;
-      top: 10%;
+      top: 5%;
       // margin: 0 auto;
       @include mobile {
         padding: 0;
@@ -112,29 +89,7 @@
   }
   .body_old {
     min-height: 500px;
-    // border: none;
-    // border-top: 0px solid rgb(51, 48, 48);
-    // p:first-child{
-    //    padding: 1rem;
-    //    font-size: 18px;
-    //    color: white;
-    //    font-weight: 600;
-    // }
-    // div:nth-child(1){
-    //    width: 90%;
-    //    margin: auto;
-    // }
-    // div:nth-child(2){
-    //    width: 90%;
-    //    margin: auto;
-    // }
-    // p{
-    //    width: 90%;
-    //    margin: auto;
-    // }
-    // img{
-    //    width: 100%;
-    // }
+
     .body_contentOld {
       width: 100%;
       font-size: 14px;
@@ -148,75 +103,7 @@
         padding-top: 2rem;
         padding-bottom: 2rem;
         border-radius: 10px;
-        //    @include tablet{
-        //       width: 80%;
-        //   display: flex;
-        //   margin: auto;
-        //    }
       }
-      // & > p{
-      //    padding: 2rem;
-      // }
-      // p:first-child{
-      //    padding: 0.8rem;
-      //    font-size: 20px;
-      //    color: white;
-      //    font-weight: 600;
-      // }
-      // div:first-child{
-      //    width: 95%;
-      //    margin: auto;
-      //    @include tablet{
-      //       width: 65%;
-      //       margin: auto;
-      //       display: flex;
-      //       flex-direction: column;
-      //    }
-      // }
-      // div:nth-child(2){
-      //    width: 95%;
-      //    margin: auto;
-      //    font-size: 25px;
-      //    color:#f1b722 ;
-      //    font-weight: 600;
-      //    padding: 1rem;
-      //    @include tablet{
-      //             width: 65%;
-      //             margin: auto;
-      //             display: flex;
-      //             flex-direction: column;
-      //          }
-      // }
-      // div:nth-child(2){
-      //    width: 95%;
-      //    margin: auto;
-      //    font-size: 25px;
-      //    color:#f1b722 ;
-      //    font-weight: 600;
-      //    padding: 1rem;
-      //    @include tablet{
-      //             width: 65%;
-      //             margin: auto;
-      //             display: flex;
-      //             flex-direction: column;
-      //          }
-      // }
-      // p{
-      //    width: 95%;
-      //    margin: auto;
-      //    @include tablet{
-      //       width: 61%;
-      //    }
-      // }
-      // img{
-      //    width: 100%;
-      //    padding-top: 2rem;
-      //    padding-bottom: 2rem;
-      //    border-radius: 10px;
-      //    @include tablet{
-      //       width: 50%;
-      //    }
-      // }
 
       @include mobile {
         width: 85%;
@@ -236,16 +123,6 @@
     @include mobile {
       min-height: 100px;
     }
-    // @include tablets{
-
-    // }
-    // @include tablet{
-
-    // }
-
-    // &>p{
-    //    font-size: 15px;
-    // }
   }
   .trailer {
     .trailer_body {

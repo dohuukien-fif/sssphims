@@ -17,12 +17,6 @@ function FilterSelected({ onchanges }) {
   };
   const handleSubmits = () => {
     if (onchanges) onchanges(categories);
-    // setcategories({
-    //   sort: "",
-    //   category: "",
-    //   year: "",
-    //   nation: "",
-    // });
   };
 
   useEffect(() => {

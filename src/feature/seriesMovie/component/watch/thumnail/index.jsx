@@ -1,9 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./styles.scss";
-// ThumnailWatch.propTypes = {
-//   product: PropTypes.array,
-// };
 
 function ThumnailWatch({ product }) {
   const { thumbnailUrl, name } = product;

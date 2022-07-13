@@ -5,7 +5,6 @@ import ProductApi from "../../../api/movieHome";
 import MovieOldList from "../component/product/productList";
 import Loading from "./../../../component/Loading/index";
 import useSearchData from "./hooks/useSearchData";
-import "./styles.scss";
 
 CategoryFeatures.propTypes = {};
 

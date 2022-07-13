@@ -4,7 +4,7 @@ import { matchPath, useLocation, useParams } from "react-router-dom";
 import useDetailProduct from "./../component/hooks/useDescription";
 import ThumnailWatch from "../component/watch/thumnail";
 import InforWatch from "../component/watch/info";
-import "./watchTv.scss";
+
 import Video from "../component/watch/video";
 import WatchContainer from "./../component/watch/moviHot/index";
 import LoadingAll from "./../../../component/Loading";

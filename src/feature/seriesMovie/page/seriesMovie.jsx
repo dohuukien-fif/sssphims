@@ -7,22 +7,18 @@ import FilterMovie from "../movieFilter/filterMovie";
 import SeriesApi from "./../../../api/movieSeries";
 import LoadingAll from "./../../../component/Loading";
 import Search from "./../movieFilter/search";
-import "./styles.scss";
+
 OldMovieFeatures.propTypes = {};
 
 function OldMovieFeatures(props) {
   const location = useLocation();
   const navigate = useNavigate();
-  const [SearchTerm, setSearchTerm] = useState("");
+
   console.log(location);
   const [OldMovieList, setOldMovieList] = useState([]);
   const [SeatchsItem, setSeatchItem] = useState("");
   const [Loading, setLoading] = useState(true);
 
-  // const [Paganation, setPaganation] = useState({
-  //   _page:1,
-  //   _limit:10
-  // })
   const [filter, setfilter] = useState({
     _page: 1,
     _limit: 12,
@@ -60,22 +56,12 @@ function OldMovieFeatures(props) {
     }));
   };
 
-  const handleSearch = (newSearch) => {
-    setSeatchItem(newSearch);
-  };
   const setDataMoviList = OldMovieList.filter((item) =>
     item.name.toLowerCase().includes(SeatchsItem.toLowerCase())
   );
-  // setfilter((prev) => ({
-  //   ...prev,
-  //   category: cate,
-  // }));
-  // console.log(newSearch);
+
   const handleSubmitSearch = (value) => {
     navigate(`/phim?desCast=${value.replace(/ /g, "+")}`);
-
-    // navigate({ search: SearchTerm.trim("") });
-    // location.search(`${SearchTerm}`);
   };
   return (
     <div className="old">
@@ -94,14 +80,14 @@ function OldMovieFeatures(props) {
               <FilterMovie onSubmit={handleSubmit} />
             </div>
             <div className="old_right">
-              {setDataMoviList.length === 0 ? (
+              {OldMovieList.length === 0 ? (
                 <div className="error">
                   <BiError />
                   <span> không tìm thấy phim ?</span>
                 </div>
               ) : (
                 <>
-                  <MovieOldList movieOldList={setDataMoviList} />
+                  <MovieOldList movieOldList={OldMovieList} />
                 </>
               )}
             </div>

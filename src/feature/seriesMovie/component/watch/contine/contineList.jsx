@@ -9,15 +9,6 @@ ContineList.propTypes = {
 function ContineList({ MovieRandoms }) {
   const navigate = useNavigate();
 
-  // const handleClick = (id) => {
-  //   navigate(`/trang-chu/phim/${items.id}`);
-  // };
-  // const handleClick = (id) => {
-  //   navigate(`/trang-chu/phim/${items.id}`);
-  // };
-  // const handleClick = (id) => {
-  //   navigate(`/trang-chu/phim/${items.id}`);
-  // };
   return (
     <>
       <div className="video_list">
